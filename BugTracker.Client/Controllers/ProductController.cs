@@ -9,8 +9,13 @@ using BugTracker.Client.Models;
 
 namespace BugTracker.Client.Controllers
 {
+    [Route("/[controller]/[action]")]
     public class ProductController : Controller
     {
+        public IActionResult Product()
+        {
+            return View();
+        }
         
     }
 }

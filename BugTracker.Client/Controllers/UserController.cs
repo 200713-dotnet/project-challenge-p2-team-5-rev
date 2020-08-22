@@ -9,11 +9,12 @@ using BugTracker.Client.Models;
 
 namespace BugTracker.Client.Controllers
 {
+    [Route("/[controller]/[action]")]
     public class UserController : Controller
     {
-        public IActionResult UserPage()
+        public IActionResult User()
         {
-            return View("user");
+            return View();
         }
 
     }
