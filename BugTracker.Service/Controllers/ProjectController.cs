@@ -1,9 +1,14 @@
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using BugTracker.Service.HttpHandler;
 using BugTracker.Service.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+
+// dotnet add package Newtonsoft.Json --version 12.0.3
 
 namespace BugTracker.Service.Controllers
 {
@@ -12,12 +17,16 @@ namespace BugTracker.Service.Controllers
   [ApiController]
   public class ProjectController : ControllerBase
   {
+    private readonly ProjectHttpHandler httpHandler = new ProjectHttpHandler();
+
     [HttpGet]
-    // [ActionName("GetAll")] // when you specify the action in the routing
-    public IActionResult Get()
+    [ActionName("GetProjects")] // when you specify the action in the routing
+    public async Task<ActionResult<IEnumerable<Project>>> Get()
     {
-      return Ok();
+      // TODO add exception handling
+      return await httpHandler.GetProjectsAsync();
     }
+
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
@@ -25,22 +34,17 @@ namespace BugTracker.Service.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostAsync(Project project)
+    public IActionResult PostAsync(Project project)
     {
-      System.Console.WriteLine("API");
-      var json = JsonConvert.SerializeObject(project);
-      System.Console.WriteLine(json);
-      var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
-      var httpClient = new HttpClient();
-      var response = await httpClient.PostAsync("http://localhost:5002/api/project", stringContent);
-
-      if(response.IsSuccessStatusCode)
+      var success = httpHandler.PostProjectAsync(project);
+      if (success.Result)
       {
-        System.Console.WriteLine("Is Succesful");
+        System.Console.WriteLine("Is Succesful - API");
         return StatusCode(201);
       }
-      else{
-        System.Console.WriteLine("is not succesful");
+      else
+      {
+        System.Console.WriteLine("is not succesful - API");
         return NotFound(); // FIXME
       }
     }
