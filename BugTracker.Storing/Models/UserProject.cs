@@ -1,21 +1,14 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using BugTracker.Storing.Abstracts;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BugTracker.Storing.Models
 {
-    public class UserProject : EntityBase
+    public partial class UserProject
     {
-        [Required]
-        public int UserID { get; set; }
+        public int UserId { get; set; }
+        public int ProjectId { get; set; }
 
-        [Required]
-        public int ProjectID { get; set; }
-
-        [ForeignKey("UserID")]
-        public virtual User User { get; set; }
-
-        [ForeignKey("ProjectID")]
         public virtual Project Project { get; set; }
+        public virtual Users User { get; set; }
     }
 }

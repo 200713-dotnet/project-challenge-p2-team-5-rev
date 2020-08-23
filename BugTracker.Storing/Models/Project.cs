@@ -1,25 +1,23 @@
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using BugTracker.Storing.Abstracts;
 
 namespace BugTracker.Storing.Models
 {
-    public class Project : EntityBase
+    public partial class Project
     {
-        [Required]
+        public Project()
+        {
+            Ticket = new HashSet<Ticket>();
+            UserProject = new HashSet<UserProject>();
+        }
+
+        public int ProjectId { get; set; }
         public string Title { get; set; }
-
-        [Required]
         public string Description { get; set; }
+        public int ManagerId { get; set; }
 
-        [Required]
-        public int ManagerID { get; set; }
-
-        [ForeignKey("MangerID")]
-        public virtual User Manager { get; set; }
-
-        public virtual ICollection<Ticket> Tickets { get; set; }
-        public virtual ICollection<UserProject> UserProjects { get; set; }
+        public virtual Users Manager { get; set; }
+        public virtual ICollection<Ticket> Ticket { get; set; }
+        public virtual ICollection<UserProject> UserProject { get; set; }
     }
 }

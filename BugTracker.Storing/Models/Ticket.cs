@@ -1,58 +1,36 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using BugTracker.Storing.Abstracts;
 
 namespace BugTracker.Storing.Models
 {
-    public class Ticket : EntityBase
+    public partial class Ticket
     {
-        [Required]
+        public Ticket()
+        {
+            Comment = new HashSet<Comment>();
+        }
+
+        public int TicketId { get; set; }
         public string Title { get; set; }
-
-        [Required]
         public string Description { get; set; }
+        public int? DevId { get; set; }
+        public int SubmitterId { get; set; }
+        public int? UpdaterId { get; set; }
+        public int ProjectId { get; set; }
+        public int PriorityId { get; set; }
+        public int StatusId { get; set; }
+        public int TypeId { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime ValidFrom { get; set; }
+        public DateTime ValidTo { get; set; }
 
-        [Required]
-        public DateTime Created { get; set; }
-
-        [Required]
-        public int DevID { get; set; }
-
-        [Required]
-        public int SubmitterID { get; set; }
-
-        [Required]
-        public int ProjectID { get; set; }
-
-        [Required]
-        public int PriorityID { get; set; }
-
-        [Required]
-        public int StatusID { get; set; }
-
-        [Required]
-        public int TypeID { get; set; }
-
-        [ForeignKey("DevID")]
-        public virtual User Dev { get; set; }
-
-        [ForeignKey("SubmitterID")]
-        public virtual User Submitter { get; set; }
-
-        [ForeignKey("ProjectID")]
-        public virtual Project Project { get; set; }
-
-        [ForeignKey("PriorityID")]
+        public virtual Users Dev { get; set; }
         public virtual TicketPriority Priority { get; set; }
-
-        [ForeignKey("StatusID")]
+        public virtual Project Project { get; set; }
         public virtual TicketStatus Status { get; set; }
-
-        [ForeignKey("TypeID")]
+        public virtual Users Submitter { get; set; }
         public virtual TicketType Type { get; set; }
-
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual Users Updater { get; set; }
+        public virtual ICollection<Comment> Comment { get; set; }
     }
 }

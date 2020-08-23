@@ -1,12 +1,18 @@
+﻿using System;
 using System.Collections.Generic;
-using BugTracker.Storing.Abstracts;
 
 namespace BugTracker.Storing.Models
 {
-    public class UserRole : EntityBase
+    public partial class UserRole
     {
+        public UserRole()
+        {
+            Users = new HashSet<Users>();
+        }
+
+        public int RoleId { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

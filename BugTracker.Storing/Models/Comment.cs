@@ -1,28 +1,17 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using BugTracker.Storing.Abstracts;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BugTracker.Storing.Models
 {
-    public class Comment : EntityBase
+    public partial class Comment
     {
-        [Required]
+        public int CommentId { get; set; }
+        public int CommenterId { get; set; }
+        public int TicketId { get; set; }
+        public DateTime DateCreated { get; set; }
         public string Text { get; set; }
 
-        [Required]
-        public int CommenterID { get; set; }
-
-        [Required]
-        public int TicketID { get; set; }
-
-        [Required]
-        public DateTime Created { get; set; }
-
-        [ForeignKey("CommenterID")]
-        public virtual User Commenter { get; set; }
-
-        [ForeignKey("TicketID")]
+        public virtual Users Commenter { get; set; }
         public virtual Ticket Ticket { get; set; }
     }
 }
