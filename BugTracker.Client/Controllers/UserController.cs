@@ -12,7 +12,7 @@ namespace BugTracker.Client.Controllers
     [Route("/[controller]/[action]")]
     public class UserController : Controller
     {
-        public IActionResult User()
+        public IActionResult UserPage()
         {
             return View();
         }
