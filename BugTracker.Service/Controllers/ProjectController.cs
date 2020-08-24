@@ -50,9 +50,19 @@ namespace BugTracker.Service.Controllers
     }
     // DELETE: api/Project/5
     [HttpDelete("{id}")]
-    public async Task<ActionResult<Ticket>> DeleteProject(int id)
+    public ActionResult DeleteProject(int id)
     {
-      return Ok();
+      var success = httpHandler.DeleteProjectAsync(id);
+      if (success.Result)
+      {
+        System.Console.WriteLine("Delete Succesful - API");
+        return StatusCode(200);
+      }
+      else
+      {
+        System.Console.WriteLine("Delete not succesful - API");
+        return NotFound(); // FIXME
+      }
     }
   }
 }

@@ -4,27 +4,30 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using BugTracker.Service.Models;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 
 namespace BugTracker.Service.HttpHandler
 {
-  public class ProjectHttpHandler
+  public class UserHttpHandler
   {
-    public async Task<List<Project>> GetProjectsAsync()
+
+    // TODO get user by id
+    public async Task<List<User>> GetUsersAsync()
     {
       var http = new HttpClient();
-      var response = await http.GetAsync("http://localhost:5002/api/project");
+      var response = await http.GetAsync("http://localhost:5002/api/user");
       var json = await response.Content.ReadAsStringAsync();
-      var deserialized = JsonConvert.DeserializeObject<List<Project>>(json);
+      var deserialized = JsonConvert.DeserializeObject<List<User>>(json);
       return deserialized;
     }
-    public async Task<bool> PostProjectAsync(Project project)
+    public async Task<bool> PostUserAsync(User user)
     {
-      var json = JsonConvert.SerializeObject(project);
+      var json = JsonConvert.SerializeObject(user);
       var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
       var httpClient = new HttpClient();
-      var response = await httpClient.PostAsync("http://localhost:5002/api/project", stringContent);
+      var response = await httpClient.PostAsync("http://localhost:5002/api/user", stringContent);
 
       if (response.IsSuccessStatusCode)
       {
@@ -37,11 +40,11 @@ namespace BugTracker.Service.HttpHandler
         return false;
       }
     }
-    public async Task<bool> DeleteProjectAsync(int id)
+    public async Task<bool> DeleteUserAsync(int id)
     {
       using (var client = new HttpClient())
       {
-        var response = await client.DeleteAsync("http://localhost:5002/api/project/" + id.ToString());
+        var response = await client.DeleteAsync("http://localhost:5002/api/user/" + id.ToString());
 
         if (response.IsSuccessStatusCode)
         {
