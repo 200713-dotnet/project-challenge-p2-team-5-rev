@@ -32,18 +32,20 @@ namespace BugTracker.Storing
             {
                 entity.ToTable("Comment", "Tickets");
 
+                entity.Property(e => e.DateCreated).HasDefaultValueSql("(getdate())");
+
                 entity.Property(e => e.Text)
                     .IsRequired()
                     .HasMaxLength(500);
 
                 entity.HasOne(d => d.Commenter)
-                    .WithMany(p => p.Comment)
+                    .WithMany(p => p.Comments)
                     .HasForeignKey(d => d.CommenterId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CommenterId");
 
                 entity.HasOne(d => d.Ticket)
-                    .WithMany(p => p.Comment)
+                    .WithMany(p => p.Comments)
                     .HasForeignKey(d => d.TicketId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_TicketId");
@@ -62,7 +64,7 @@ namespace BugTracker.Storing
                     .HasMaxLength(100);
 
                 entity.HasOne(d => d.Manager)
-                    .WithMany(p => p.Project)
+                    .WithMany(p => p.ManagedProjects)
                     .HasForeignKey(d => d.ManagerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ManagerId");
@@ -83,42 +85,42 @@ namespace BugTracker.Storing
                     .HasMaxLength(100);
 
                 entity.HasOne(d => d.Dev)
-                    .WithMany(p => p.TicketDev)
+                    .WithMany(p => p.AssignedTickets)
                     .HasForeignKey(d => d.DevId)
                     .HasConstraintName("FK_DevId");
 
                 entity.HasOne(d => d.Priority)
-                    .WithMany(p => p.Ticket)
+                    .WithMany(p => p.Tickets)
                     .HasForeignKey(d => d.PriorityId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_PriorityId");
 
                 entity.HasOne(d => d.Project)
-                    .WithMany(p => p.Ticket)
+                    .WithMany(p => p.Tickets)
                     .HasForeignKey(d => d.ProjectId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ProjectId");
 
                 entity.HasOne(d => d.Status)
-                    .WithMany(p => p.Ticket)
+                    .WithMany(p => p.Tickets)
                     .HasForeignKey(d => d.StatusId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_StatusId");
 
                 entity.HasOne(d => d.Submitter)
-                    .WithMany(p => p.TicketSubmitter)
+                    .WithMany(p => p.SubmittedTickets)
                     .HasForeignKey(d => d.SubmitterId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_SubmitterId");
 
                 entity.HasOne(d => d.Type)
-                    .WithMany(p => p.Ticket)
+                    .WithMany(p => p.Tickets)
                     .HasForeignKey(d => d.TypeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_TypeId");
 
                 entity.HasOne(d => d.Updater)
-                    .WithMany(p => p.TicketUpdater)
+                    .WithMany(p => p.UpdatedTickets)
                     .HasForeignKey(d => d.UpdaterId)
                     .HasConstraintName("FK_UpdaterId");
             });
@@ -179,13 +181,13 @@ namespace BugTracker.Storing
                 entity.ToTable("UserProject", "Users");
 
                 entity.HasOne(d => d.Project)
-                    .WithMany(p => p.UserProject)
+                    .WithMany(p => p.UserProjects)
                     .HasForeignKey(d => d.ProjectId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ProjectId");
 
                 entity.HasOne(d => d.User)
-                    .WithMany(p => p.UserProject)
+                    .WithMany(p => p.UserProjects)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_UserId");

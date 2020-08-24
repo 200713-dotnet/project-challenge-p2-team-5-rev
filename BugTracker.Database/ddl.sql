@@ -21,7 +21,7 @@ CREATE TABLE Projects.Project
     ProjectId INT NOT NULL IDENTITY(1, 1),
     Title NVARCHAR(100) NOT NULL,
     [Description] NVARCHAR(500) NOT NULL,
-    ManagerId INT NOT NULL,
+    ManagerId INT NULL,
     CONSTRAINT PK_ProjectId PRIMARY KEY (ProjectId)
 );
 
@@ -71,7 +71,7 @@ CREATE TABLE Tickets.Comment
     CommentId INT NOT NULL IDENTITY(1, 1),
     CommenterId INT NOT NULL,
     TicketId INT NOT NULL,
-    DateCreated DATETIME2 NOT NULL,
+    DateCreated DATETIME2 NOT NULL DEFAULT GetDate(),
     [Text] NVARCHAR(500) NOT NULL,
     CONSTRAINT PK_CommentId PRIMARY KEY (CommentId)
 );

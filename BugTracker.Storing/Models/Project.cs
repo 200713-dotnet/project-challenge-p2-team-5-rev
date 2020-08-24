@@ -7,17 +7,17 @@ namespace BugTracker.Storing.Models
     {
         public Project()
         {
-            Ticket = new HashSet<Ticket>();
-            UserProject = new HashSet<UserProject>();
+            Tickets = new HashSet<Ticket>();
+            UserProjects = new HashSet<UserProject>();
         }
 
         public int ProjectId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public int ManagerId { get; set; }
+        public int? ManagerId { get; set; }
 
         public virtual Users Manager { get; set; }
-        public virtual ICollection<Ticket> Ticket { get; set; }
-        public virtual ICollection<UserProject> UserProject { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<UserProject> UserProjects { get; set; }
     }
 }

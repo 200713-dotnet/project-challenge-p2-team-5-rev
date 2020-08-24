@@ -7,7 +7,7 @@ namespace BugTracker.Storing.Models
     {
         public Ticket()
         {
-            Comment = new HashSet<Comment>();
+            Comments = new HashSet<Comment>();
         }
 
         public int TicketId { get; set; }
@@ -31,6 +31,6 @@ namespace BugTracker.Storing.Models
         public virtual Users Submitter { get; set; }
         public virtual TicketType Type { get; set; }
         public virtual Users Updater { get; set; }
-        public virtual ICollection<Comment> Comment { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
