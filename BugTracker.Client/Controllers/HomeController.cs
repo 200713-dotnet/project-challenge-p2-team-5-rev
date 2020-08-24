@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BugTracker.Client.Models;
+using BugTracker.Client.ObjectModels;
 
 namespace BugTracker.Client.Controllers
 {
@@ -26,6 +27,12 @@ namespace BugTracker.Client.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        //[HttpPost]
+        public IActionResult Register()
+        {
+            return View("Register");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
