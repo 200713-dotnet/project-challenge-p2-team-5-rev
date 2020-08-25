@@ -41,8 +41,10 @@ jobs:
 
 name: btbuild
 
-on:
-  push:
-    branches:
-      - master
-      - testing
+on: master
+
+# on:
+#   push:
+#     branches:
+#       - master
+#       - testing
