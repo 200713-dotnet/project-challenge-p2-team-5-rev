@@ -28,9 +28,17 @@ namespace BugTracker.Service.Controllers
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetById(int id)
+    public async Task<ActionResult<Project>> GetById(int id)
     {
-      return Ok();
+      return await httpHandler.GetProjectByIdAsync(id);
+    }
+
+    [HttpGet]
+    [Route("[action]/{id}")]
+    public async Task<ActionResult<IEnumerable<Project>>> GetProjectsByUserId(int id)
+    {
+      System.Console.WriteLine("get by user Id");
+      return await httpHandler.GetProjectsByUserId(id);
     }
 
     [HttpPost]
@@ -40,7 +48,7 @@ namespace BugTracker.Service.Controllers
       if (success.Result)
       {
         System.Console.WriteLine("Is Succesful - API");
-        return StatusCode(201);
+        return CreatedAtAction(nameof(GetById), new { id = project.ID }, project);
       }
       else
       {

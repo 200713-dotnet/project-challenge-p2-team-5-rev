@@ -12,18 +12,21 @@ namespace BugTracker.Service.Models
 
     public DateTime Created { get; set; }
 
-    public virtual User Dev { get; set; }
+    // public virtual User Dev { get; set; }
+    public int DevID { get; set; }
 
-    public virtual User Submitter { get; set; }
+    // public virtual User Submitter { get; set; }
+    public int SubmitterID { get; set; }
 
-    public virtual Project Project { get; set; }
+    // public virtual Project Project { get; set; }
+    public int ProjectID { get; set; }
 
-    public virtual TicketPriority Priority { get; set; }
+    public virtual string Priority { get; set; }
 
-    public virtual TicketStatus Status { get; set; }
+    public virtual string Status { get; set; }
 
-    public virtual TicketType Type { get; set; }
+    public virtual string Type { get; set; }
 
-    public virtual ICollection<Comment> Comments { get; set; }
+    // public virtual ICollection<Comment> Comments { get; set; }  // probably not implemented
   }
 }

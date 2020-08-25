@@ -23,7 +23,8 @@ namespace BugTracker.Service.Models
 
         public virtual ICollection<Ticket> AssignedTickets { get; set; }
 
-        public virtual ICollection<Comment> Comments { get; set; }
-        public virtual ICollection<UserProject> UserProjects { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; } // 
+
+        // public virtual ICollection<UserProject> UserProjects { get; set; }
     }
 }
