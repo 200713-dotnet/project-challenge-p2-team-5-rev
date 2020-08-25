@@ -11,20 +11,20 @@ jobs:
       - uses: actions/checkout@v2.3.1
       - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover
 
-  # analyze:
-  #   needs: [build, test]
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - uses: actions/checkout@v2.3.1
-  #     - run: dotnet tool install --global dotnet-sonarscanner
-  #     - run: |
-  #         dotnet sonarscanner begin -o:'ian-gilbert' -k:'Ian-Gilbert_training-code-week-4' -d:sonar.login='9cc4e3a29a72508401de8f56525a6ffdc6e53169' -d:sonar.host.url='https://sonarcloud.io'
-  #         dotnet build
-  #         dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --logger trx
-  #         dotnet sonarscanner end -d:sonar.login=<sonar login>
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #
+  analyze:
+    needs: [build, test]
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2.3.1
+      - run: dotnet tool install --global dotnet-sonarscanner
+      - run: |
+          dotnet sonarscanner begin -o:'rev-team-5' -k:'p2-bug-tracker' -d:sonar.login='f3bd03eff49a88e06b7425c619f78a73b41d5077' -d:sonar.host.url='https://sonarcloud.io'
+          dotnet build
+          dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --logger trx
+          dotnet sonarscanner end -d:sonar.login='f3bd03eff49a88e06b7425c619f78a73b41d5077'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
   # package:
   #   env:
   #     DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
@@ -45,3 +45,4 @@ on:
   push:
     branches:
       - master
+      - testing
