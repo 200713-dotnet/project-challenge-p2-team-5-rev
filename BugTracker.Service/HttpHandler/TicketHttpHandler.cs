@@ -9,39 +9,39 @@ using Newtonsoft.Json;
 
 namespace BugTracker.Service.HttpHandler
 {
-  public class ProjectHttpHandler
+  public class TicketHttpHandler
   {
-    public async Task<List<Project>> GetProjectsAsync()
+    public async Task<List<Ticket>> GetTicketsAsync()
     {
       var http = new HttpClient();
-      var response = await http.GetAsync("http://localhost:5002/api/project");
+      var response = await http.GetAsync("http://localhost:5002/api/ticket");
       var json = await response.Content.ReadAsStringAsync();
-      var deserialized = JsonConvert.DeserializeObject<List<Project>>(json);
+      var deserialized = JsonConvert.DeserializeObject<List<Ticket>>(json);
       return deserialized;
     }
-    public async Task<Project> GetProjectByIdAsync(int id)
+    public async Task<Ticket> GetTicketsByIdAsync(int id)
     {
       var http = new HttpClient();
-      var response = await http.GetAsync("http://localhost:5002/api/project/" + id.ToString());
+      var response = await http.GetAsync("http://localhost:5002/api/ticket/" + id.ToString());
       var json = await response.Content.ReadAsStringAsync();
-      var deserialized = JsonConvert.DeserializeObject<Project>(json);
+      var deserialized = JsonConvert.DeserializeObject<Ticket>(json);
       return deserialized;
     }
-    public async Task<List<Project>> GetProjectsByUserId(int id)
+    public async Task<List<Ticket>> GetTicketsByProjectId(int id)
     {
       var http = new HttpClient();
-      var response = await http.GetAsync("http://localhost:5002/api/project/getprojectsbyuserid/" + id.ToString());
+      var response = await http.GetAsync("http://localhost:5002/api/ticket/getticketsbyprojectid/" + id.ToString());
       var json = await response.Content.ReadAsStringAsync();
-      var deserialized = JsonConvert.DeserializeObject<List<Project>>(json);
+      var deserialized = JsonConvert.DeserializeObject<List<Ticket>>(json);
       return deserialized;
     }
-    public async Task<bool> PutProjectAsync(int id, Project project)
+    public async Task<bool> PutTicketAsync(int id, Ticket ticket)
     {
-      var json = JsonConvert.SerializeObject(project);
+      var json = JsonConvert.SerializeObject(ticket);
       var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
       using(var client = new HttpClient())
       {
-        var response = await client.PutAsync("http://localhost:5002/api/project/" + id.ToString(), stringContent);
+        var response = await client.PutAsync("http://localhost:5002/api/ticket/" + id.ToString(), stringContent);
         if (response.IsSuccessStatusCode)
         {
           System.Console.WriteLine("Put Succesfull - Handler");
@@ -54,12 +54,13 @@ namespace BugTracker.Service.HttpHandler
         }
       }
     }
-    public async Task<bool> PostProjectAsync(Project project)
+
+    public async Task<bool> PostTicketAsync(Ticket ticket)
     {
-      var json = JsonConvert.SerializeObject(project);
+      var json = JsonConvert.SerializeObject(ticket);
       var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
       var httpClient = new HttpClient();
-      var response = await httpClient.PostAsync("http://localhost:5002/api/project", stringContent);
+      var response = await httpClient.PostAsync("http://localhost:5002/api/ticket", stringContent);
 
       if (response.IsSuccessStatusCode)
       {
@@ -72,11 +73,11 @@ namespace BugTracker.Service.HttpHandler
         return false;
       }
     }
-    public async Task<bool> DeleteProjectAsync(int id)
+    public async Task<bool> DeleteTicketsAsync(int id)
     {
       using (var client = new HttpClient())
       {
-        var response = await client.DeleteAsync("http://localhost:5002/api/project/" + id.ToString());
+        var response = await client.DeleteAsync("http://localhost:5002/api/ticket/" + id.ToString());
         if (response.IsSuccessStatusCode)
         {
           System.Console.WriteLine("Delete Succesful - Handler");

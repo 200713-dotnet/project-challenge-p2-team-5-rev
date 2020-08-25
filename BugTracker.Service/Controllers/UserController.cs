@@ -29,22 +29,7 @@ namespace BugTracker.Service.Controllers
     [HttpPost]
     public async Task<IActionResult> PostAsync(User user)
     {
-      System.Console.WriteLine("API");
-      var json = JsonConvert.SerializeObject(user);
-      System.Console.WriteLine(json);
-      var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
-      var httpClient = new HttpClient();
-      var response = await httpClient.PostAsync("http://localhost:5002/api/project", stringContent);
-
-      if(response.IsSuccessStatusCode)
-      {
-        System.Console.WriteLine("Is Succesful");
-        return StatusCode(201);
-      }
-      else{
-        System.Console.WriteLine("is not succesful");
-        return NotFound(); // FIXME
-      }
+      return Ok();
     }
     // DELETE: api/Project/5
     [HttpDelete("{id}")]

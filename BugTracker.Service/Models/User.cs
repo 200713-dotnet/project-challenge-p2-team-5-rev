@@ -17,13 +17,15 @@ namespace BugTracker.Service.Models
 
         public int RoleID { get; set; } // not sure
 
-        public virtual UserRole Role { get; set; }
+        // public virtual UserRole Role { get; set; }
+        public string Role { get; set; }
 
         public virtual ICollection<Ticket> SubmittedTickets { get; set; }
 
         public virtual ICollection<Ticket> AssignedTickets { get; set; }
 
-        public virtual ICollection<Comment> Comments { get; set; }
-        public virtual ICollection<UserProject> UserProjects { get; set; }
+        // public virtual ICollection<Comment> Comments { get; set; } // 
+
+        // public virtual ICollection<UserProject> UserProjects { get; set; }
     }
 }
