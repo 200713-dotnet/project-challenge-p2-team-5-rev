@@ -3,7 +3,7 @@
 
 <h1>Welcome to the Project page</h1>
 
-foreach(var Project in ProjectViewModel)
+@foreach(var Project in @Model.Projects)
 {
-    <p>m.Project.Title</p>
+    <p>@Html.DisplayFor(p => Project.Title)</p>
 }

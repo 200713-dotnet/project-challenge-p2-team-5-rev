@@ -15,5 +15,11 @@ namespace BugTracker.Client.ObjectModels
         public virtual ICollection<Ticket> Tickets { get; set; }
        // public virtual ICollection<UserProject> UserProjects { get; set; }
 
+        public ProjectModel()
+       {
+         Title = "";
+         Description = "";
+       }
+
     }
 }
