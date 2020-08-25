@@ -11,8 +11,6 @@ namespace BugTracker.Service.HttpHandler
 {
   public class TicketHttpHandler
   {
-
-    // TODO get Ticket by id
     public async Task<List<Ticket>> GetTicketsAsync()
     {
       var http = new HttpClient();
@@ -21,6 +19,42 @@ namespace BugTracker.Service.HttpHandler
       var deserialized = JsonConvert.DeserializeObject<List<Ticket>>(json);
       return deserialized;
     }
+    public async Task<Ticket> GetTicketsByIdAsync(int id)
+    {
+      var http = new HttpClient();
+      var response = await http.GetAsync("http://localhost:5002/api/ticket/" + id.ToString());
+      var json = await response.Content.ReadAsStringAsync();
+      var deserialized = JsonConvert.DeserializeObject<Ticket>(json);
+      return deserialized;
+    }
+    public async Task<List<Ticket>> GetTicketsByProjectId(int id)
+    {
+      var http = new HttpClient();
+      var response = await http.GetAsync("http://localhost:5002/api/ticket/getticketsbyprojectid/" + id.ToString());
+      var json = await response.Content.ReadAsStringAsync();
+      var deserialized = JsonConvert.DeserializeObject<List<Ticket>>(json);
+      return deserialized;
+    }
+    public async Task<bool> PutTicketAsync(int id, Ticket ticket)
+    {
+      var json = JsonConvert.SerializeObject(ticket);
+      var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+      using(var client = new HttpClient())
+      {
+        var response = await client.PutAsync("http://localhost:5002/api/ticket/" + id.ToString(), stringContent);
+        if (response.IsSuccessStatusCode)
+        {
+          System.Console.WriteLine("Put Succesfull - Handler");
+          return true;
+        }
+        else
+        {
+          System.Console.WriteLine("Put Not Succesfull - Handler");
+          return false;
+        }
+      }
+    }
+
     public async Task<bool> PostTicketAsync(Ticket ticket)
     {
       var json = JsonConvert.SerializeObject(ticket);

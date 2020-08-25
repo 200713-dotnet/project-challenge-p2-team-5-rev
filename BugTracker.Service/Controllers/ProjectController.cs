@@ -40,6 +40,25 @@ namespace BugTracker.Service.Controllers
       System.Console.WriteLine("get by user Id");
       return await httpHandler.GetProjectsByUserId(id);
     }
+    [HttpPut]
+    public IActionResult PutProject(int id, Project project)
+    {
+      if (id != project.ID)
+      {
+        return BadRequest();
+      }
+      var success = httpHandler.PutProjectAsync(id, project);
+      if (success.Result)
+      {
+        System.Console.WriteLine("Is Succesful - API");
+        return NoContent();
+      }
+      else
+      {
+        System.Console.WriteLine("is not succesful - API");
+        return NotFound();
+      }
+    }
 
     [HttpPost]
     public IActionResult PostAsync(Project project)

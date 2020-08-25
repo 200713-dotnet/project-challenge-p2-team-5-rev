@@ -35,6 +35,25 @@ namespace BugTracker.Service.HttpHandler
       var deserialized = JsonConvert.DeserializeObject<List<Project>>(json);
       return deserialized;
     }
+    public async Task<bool> PutProjectAsync(int id, Project project)
+    {
+      var json = JsonConvert.SerializeObject(project);
+      var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+      using(var client = new HttpClient())
+      {
+        var response = await client.PutAsync("http://localhost:5002/api/project/" + id.ToString(), stringContent);
+        if (response.IsSuccessStatusCode)
+        {
+          System.Console.WriteLine("Put Succesfull - Handler");
+          return true;
+        }
+        else
+        {
+          System.Console.WriteLine("Put Not Succesfull - Handler");
+          return false;
+        }
+      }
+    }
     public async Task<bool> PostProjectAsync(Project project)
     {
       var json = JsonConvert.SerializeObject(project);
@@ -58,7 +77,6 @@ namespace BugTracker.Service.HttpHandler
       using (var client = new HttpClient())
       {
         var response = await client.DeleteAsync("http://localhost:5002/api/project/" + id.ToString());
-
         if (response.IsSuccessStatusCode)
         {
           System.Console.WriteLine("Delete Succesful - Handler");
