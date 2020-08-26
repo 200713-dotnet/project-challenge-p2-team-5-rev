@@ -1,0 +1,8 @@
+
+/BugTracker.Service.Controllers.TicketController'Microsoft.AspNetCore.Mvc.ControllerBaseobject>
+Get()5BugTracker.Service.Controllers.TicketController.Get()L
+GetById(int)<BugTracker.Service.Controllers.TicketController.GetById(int)Z
+GetByProjectId(int)CBugTracker.Service.Controllers.TicketController.GetByProjectId(int)€
+&Post(BugTracker.Service.Models.Ticket)VBugTracker.Service.Controllers.TicketController.Post(BugTracker.Service.Models.Ticket)V
+DeleteTicket(int)ABugTracker.Service.Controllers.TicketController.DeleteTicket(int)X
+TicketController()BBugTracker.Service.Controllers.TicketController.TicketController()

@@ -1,0 +1,13 @@
+Í
+!BugTracker.Service.Models.Commentobject8
+	Comment()+BugTracker.Service.Models.Comment.Comment()6
+Text.get*BugTracker.Service.Models.Comment.Text.get6
+Text.set*BugTracker.Service.Models.Comment.Text.set<
+Created.get-BugTracker.Service.Models.Comment.Created.get<
+Created.set-BugTracker.Service.Models.Comment.Created.set@
+Commenter.get/BugTracker.Service.Models.Comment.Commenter.get@
+Commenter.set/BugTracker.Service.Models.Comment.Commenter.set:
+
+Ticket.get,BugTracker.Service.Models.Comment.Ticket.get:
+
+Ticket.set,BugTracker.Service.Models.Comment.Ticket.set

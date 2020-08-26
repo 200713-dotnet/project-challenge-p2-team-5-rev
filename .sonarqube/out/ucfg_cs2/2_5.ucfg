@@ -1,0 +1,31 @@
+
+(BugTracker.Client.Program.Main(string[]) 
+•/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Program.cs ("0*›
+0Á
+¾
+ 
+•/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Program.cs (#/
+%0)Microsoft.Extensions.Hosting.IHostBuilder"5BugTracker.Client.Program.CreateHostBuilder(string[])*"
+BugTracker.Client.Program*
+
+argsstring[]¿¼
+ 
+•/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Program.cs (+(
+%1"Microsoft.Extensions.Hosting.IHost"1Microsoft.Extensions.Hosting.IHostBuilder.Build()*1
+/
+%0)Microsoft.Extensions.Hosting.IHostBuilder2Build()Š
+‡
+ 
+•/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Program.cs (1
+
+%2void"fMicrosoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(Microsoft.Extensions.Hosting.IHost)*B"@
+>Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions**
+(
+%1"Microsoft.Extensions.Hosting.IHost*
+1*¾
+1"¸
+ 
+•/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Program.cs (	
+implicit return:
+argsstring[]B"
+BugTracker.Client.Program

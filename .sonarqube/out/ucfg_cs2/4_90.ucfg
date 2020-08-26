@@ -1,0 +1,81 @@
+
+CBugTracker.Service.Controllers.ProjectController.DeleteProject(int)·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csP P(%"4*Ó
+
+0ö
+ó
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csR R(7
+%01BugTracker.Service.HttpHandler.ProjectHttpHandler"__id*x*v2
+0BugTracker.Service.Controllers.ProjectController"@
+httpHandler1BugTracker.Service.HttpHandler.ProjectHttpHandler÷
+ô
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csR R(6*
+%1$System.Threading.Tasks.Task<TResult>"IBugTracker.Service.HttpHandler.ProjectHttpHandler.DeleteProjectAsync(int)*9
+7
+%01BugTracker.Service.HttpHandler.ProjectHttpHandler*
+""¢
+Ÿ
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csR
+ R(6/
+success$System.Threading.Tasks.Task<TResult>"__id*,
+*
+%1$System.Threading.Tasks.Task<TResult>­
+ª
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csS
+ S(
+
+%2bool"/System.Threading.Tasks.Task<TResult>.Result.get*1
+/
+success$System.Threading.Tasks.Task<TResult>*
+1
+2*€
+1›
+˜
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csU U(:
+
+%3void" System.Console.WriteLine(string)*"
+System.Console*
+Delete Succesful - APIìé
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csV V(/
+%4)Microsoft.AspNetCore.Mvc.StatusCodeResult"7Microsoft.AspNetCore.Mvc.ControllerBase.StatusCode(int)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*2È2StatusCode(int)"í
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csV V(1
+/
+%4)Microsoft.AspNetCore.Mvc.StatusCodeResult*ï
+2Ÿ
+œ
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csZ Z(>
+
+%5void" System.Console.WriteLine(string)*"
+System.Console*
+Delete not succesful - APIÙÖ
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs[ [(-
+%6'Microsoft.AspNetCore.Mvc.NotFoundResult"2Microsoft.AspNetCore.Mvc.ControllerBase.NotFound()*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase2
+NotFound()"ë
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs[ [(/
+-
+%6'Microsoft.AspNetCore.Mvc.NotFoundResult*Õ
+3"Ï
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs] ](
+implicit return*ä
+4Ù
+Ö
+·
+¬/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csP P(%
+%7"__entrypoint*
+""*
+0:	
+idintB42
+0BugTracker.Service.Controllers.ProjectController

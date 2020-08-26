@@ -1,0 +1,32 @@
+
+CBugTracker.Service.Controllers.TicketController.GetByProjectId(int)¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs9 (G"2*Ë
+0•
+’
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs (3
+
+%0void" System.Console.WriteLine(string)*"
+System.Console*
+get by project IdÆÃ
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs   ('
+%1!Microsoft.AspNetCore.Mvc.OkResult",Microsoft.AspNetCore.Mvc.ControllerBase.Ok()*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase2Ok()"ä
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs   ()
+'
+%1!Microsoft.AspNetCore.Mvc.OkResult*Ô
+1"Î
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs! !(
+implicit return*ã
+2Ø
+Õ
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs9 (G
+%2"__entrypoint*
+""*
+0:	
+idintB31
+/BugTracker.Service.Controllers.TicketController

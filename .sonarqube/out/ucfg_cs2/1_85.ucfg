@@ -1,0 +1,25 @@
+
+ABugTracker.Service.Controllers.TicketController.DeleteTicket(int)¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs4, 4(8"2*³
+0ÆÃ
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs6 6('
+%0!Microsoft.AspNetCore.Mvc.OkResult",Microsoft.AspNetCore.Mvc.ControllerBase.Ok()*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase2Ok()"ä
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs6 6()
+'
+%0!Microsoft.AspNetCore.Mvc.OkResult*Ô
+1"Î
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs7 7(
+implicit return*ã
+2Ø
+Õ
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs4, 4(8
+%1"__entrypoint*
+""*
+0:	
+idintB31
+/BugTracker.Service.Controllers.TicketController

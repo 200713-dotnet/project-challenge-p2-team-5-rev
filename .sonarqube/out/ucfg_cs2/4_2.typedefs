@@ -1,0 +1,7 @@
+ù
+-BugTracker.Service.Controllers.UserController'Microsoft.AspNetCore.Mvc.ControllerBaseobject<
+Get()3BugTracker.Service.Controllers.UserController.Get()J
+GetById(int):BugTracker.Service.Controllers.UserController.GetById(int)Ñ
+)PostAsync(BugTracker.Service.Models.User)WBugTracker.Service.Controllers.UserController.PostAsync(BugTracker.Service.Models.User)V
+DeleteProject(int)@BugTracker.Service.Controllers.UserController.DeleteProject(int)R
+UserController()>BugTracker.Service.Controllers.UserController.UserController()

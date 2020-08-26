@@ -1,0 +1,11 @@
+•
+!BugTracker.Service.Models.Project.BugTracker.Service.Models.Abstracts.EntityBaseobject8
+	Project()+BugTracker.Service.Models.Project.Project()8
+	Title.get+BugTracker.Service.Models.Project.Title.get8
+	Title.set+BugTracker.Service.Models.Project.Title.setD
+Description.get1BugTracker.Service.Models.Project.Description.getD
+Description.set1BugTracker.Service.Models.Project.Description.set@
+ManagerID.get/BugTracker.Service.Models.Project.ManagerID.get@
+ManagerID.set/BugTracker.Service.Models.Project.ManagerID.set<
+Tickets.get-BugTracker.Service.Models.Project.Tickets.get<
+Tickets.set-BugTracker.Service.Models.Project.Tickets.set

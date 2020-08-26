@@ -1,0 +1,7 @@
+õ
+BugTracker.Client.Startupobject’
+:Startup(Microsoft.Extensions.Configuration.IConfiguration)TBugTracker.Client.Startup.Startup(Microsoft.Extensions.Configuration.IConfiguration)º
+NConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)hBugTracker.Client.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)ù
+mConfigure(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Hosting.IWebHostEnvironment)‡BugTracker.Client.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Hosting.IWebHostEnvironment)@
+Configuration.get+BugTracker.Client.Startup.Configuration.get@
+Configuration.set+BugTracker.Client.Startup.Configuration.set

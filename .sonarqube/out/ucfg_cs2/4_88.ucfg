@@ -1,0 +1,107 @@
+
+VBugTracker.Service.Controllers.TicketController.Post(BugTracker.Service.Models.Ticket)¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs$ $("4*Š
+0ò
+ï
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs& &(6
+%00BugTracker.Service.HttpHandler.TicketHttpHandler"__id*v*t1
+/BugTracker.Service.Controllers.TicketController"?
+httpHandler0BugTracker.Service.HttpHandler.TicketHttpHandler´
+±
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs& &(7*
+%1$System.Threading.Tasks.Task<TResult>"bBugTracker.Service.HttpHandler.TicketHttpHandler.PostTicketAsync(BugTracker.Service.Models.Ticket)*8
+6
+%00BugTracker.Service.HttpHandler.TicketHttpHandler*,
+*
+ticket BugTracker.Service.Models.Ticket¡
+ž
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs&
+ &(7/
+success$System.Threading.Tasks.Task<TResult>"__id*,
+*
+%1$System.Threading.Tasks.Task<TResult>¬
+©
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs'
+ '(
+
+%2bool"/System.Threading.Tasks.Task<TResult>.Result.get*1
+/
+success$System.Threading.Tasks.Task<TResult>*
+1
+2*™
+
+1–
+“
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs) )(6
+
+%3void" System.Console.WriteLine(string)*"
+System.Console*
+Is Succesful - API¬
+©
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs*; *(D	
+%4int"5BugTracker.Service.Models.Abstracts.EntityBase.ID.get*,
+*
+ticket BugTracker.Service.Models.Ticket×Ô
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs* *(O4
+%5.Microsoft.AspNetCore.Mvc.CreatedAtActionResult"OMicrosoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction(string, object, object)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+""*
+""*,
+*
+ticket BugTracker.Service.Models.Ticket2'CreatedAtAction(string, object, object)"ñ
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs* *(P6
+4
+%5.Microsoft.AspNetCore.Mvc.CreatedAtActionResult*è
+2š
+—
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs. .(:
+
+%6void" System.Console.WriteLine(string)*"
+System.Console*
+Is Not Succesful - APIØÕ
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs/ /(-
+%7'Microsoft.AspNetCore.Mvc.NotFoundResult"2Microsoft.AspNetCore.Mvc.ControllerBase.NotFound()*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase2
+NotFound()"ê
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs/ /(/
+-
+%7'Microsoft.AspNetCore.Mvc.NotFoundResult*Ô
+3"Î
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs1 1(
+implicit return*Í
+4þ
+û
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs$ $(
+%8"__entrypoint*,
+*
+ticket BugTracker.Service.Models.TicketÀ
+½
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs# #(
+%9"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*,
+*
+ticket BugTracker.Service.Models.Ticketþ
+û
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs$ $(+*
+ticket BugTracker.Service.Models.Ticket"__annotation*
+
+%9*
+0:*
+ticket BugTracker.Service.Models.TicketB31
+/BugTracker.Service.Controllers.TicketController

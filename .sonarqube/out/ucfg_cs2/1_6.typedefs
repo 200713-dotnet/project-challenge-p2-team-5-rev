@@ -1,0 +1,9 @@
+æ
+0BugTracker.Service.Controllers.ProjectController'Microsoft.AspNetCore.Mvc.ControllerBaseobject?
+Get()6BugTracker.Service.Controllers.ProjectController.Get()M
+GetById(int)=BugTracker.Service.Controllers.ProjectController.GetById(int)e
+GetProjectsByUserId(int)IBugTracker.Service.Controllers.ProjectController.GetProjectsByUserId(int)ô
+2PutProject(int, BugTracker.Service.Models.Project)cBugTracker.Service.Controllers.ProjectController.PutProject(int, BugTracker.Service.Models.Project)ç
+,PostAsync(BugTracker.Service.Models.Project)]BugTracker.Service.Controllers.ProjectController.PostAsync(BugTracker.Service.Models.Project)Y
+DeleteProject(int)CBugTracker.Service.Controllers.ProjectController.DeleteProject(int)[
+ProjectController()DBugTracker.Service.Controllers.ProjectController.ProjectController()

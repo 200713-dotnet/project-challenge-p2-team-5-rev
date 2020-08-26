@@ -1,0 +1,23 @@
+ç	
+ BugTracker.Service.Models.Ticket.BugTracker.Service.Models.Abstracts.EntityBaseobject5
+Ticket())BugTracker.Service.Models.Ticket.Ticket()7
+	Title.get*BugTracker.Service.Models.Ticket.Title.get7
+	Title.set*BugTracker.Service.Models.Ticket.Title.setC
+Description.get0BugTracker.Service.Models.Ticket.Description.getC
+Description.set0BugTracker.Service.Models.Ticket.Description.set;
+Created.get,BugTracker.Service.Models.Ticket.Created.get;
+Created.set,BugTracker.Service.Models.Ticket.Created.set7
+	DevID.get*BugTracker.Service.Models.Ticket.DevID.get7
+	DevID.set*BugTracker.Service.Models.Ticket.DevID.setC
+SubmitterID.get0BugTracker.Service.Models.Ticket.SubmitterID.getC
+SubmitterID.set0BugTracker.Service.Models.Ticket.SubmitterID.set?
+ProjectID.get.BugTracker.Service.Models.Ticket.ProjectID.get?
+ProjectID.set.BugTracker.Service.Models.Ticket.ProjectID.set=
+Priority.get-BugTracker.Service.Models.Ticket.Priority.get=
+Priority.set-BugTracker.Service.Models.Ticket.Priority.set9
+
+Status.get+BugTracker.Service.Models.Ticket.Status.get9
+
+Status.set+BugTracker.Service.Models.Ticket.Status.set5
+Type.get)BugTracker.Service.Models.Ticket.Type.get5
+Type.set)BugTracker.Service.Models.Ticket.Type.set

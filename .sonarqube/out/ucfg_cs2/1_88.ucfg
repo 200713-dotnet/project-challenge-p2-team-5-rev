@@ -1,0 +1,107 @@
+
+]BugTracker.Service.Controllers.ProjectController.PostAsync(BugTracker.Service.Models.Project)∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs@ @(""4*ó
+0ˆ
+Û
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csB B(7
+%01BugTracker.Service.HttpHandler.ProjectHttpHandler"__id*x*v2
+0BugTracker.Service.Controllers.ProjectController"@
+httpHandler1BugTracker.Service.HttpHandler.ProjectHttpHandlerª
+∏
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csB B(9*
+%1$System.Threading.Tasks.Task<TResult>"eBugTracker.Service.HttpHandler.ProjectHttpHandler.PostProjectAsync(BugTracker.Service.Models.Project)*9
+7
+%01BugTracker.Service.HttpHandler.ProjectHttpHandler*.
+,
+project!BugTracker.Service.Models.Project¢
+ü
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csB
+ B(9/
+success$System.Threading.Tasks.Task<TResult>"__id*,
+*
+%1$System.Threading.Tasks.Task<TResult>≠
+™
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csC
+ C(
+
+%2bool"/System.Threading.Tasks.Task<TResult>.Result.get*1
+/
+success$System.Threading.Tasks.Task<TResult>*
+1
+2*°
+
+1ó
+î
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csE E(6
+
+%3void" System.Console.WriteLine(string)*"
+System.Console*
+Is Succesful - APIØ
+¨
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csF; F(E	
+%4int"5BugTracker.Service.Models.Abstracts.EntityBase.ID.get*.
+,
+project!BugTracker.Service.Models.Project⁄◊
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csF F(Q4
+%5.Microsoft.AspNetCore.Mvc.CreatedAtActionResult"OMicrosoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction(string, object, object)*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase*
+""*
+""*.
+,
+project!BugTracker.Service.Models.Project2'CreatedAtAction(string, object, object)"Ú
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csF F(R6
+4
+%5.Microsoft.AspNetCore.Mvc.CreatedAtActionResult*Î
+2õ
+ò
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csJ J(:
+
+%6void" System.Console.WriteLine(string)*"
+System.Console*
+is not succesful - APIŸ÷
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csK K(-
+%7'Microsoft.AspNetCore.Mvc.NotFoundResult"2Microsoft.AspNetCore.Mvc.ControllerBase.NotFound()*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase2
+NotFound()"Î
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csK K(/
+-
+%7'Microsoft.AspNetCore.Mvc.NotFoundResult*’
+3"œ
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.csM M(
+implicit return*÷
+4Å
+˛
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs@ @("
+%8"__entrypoint*.
+,
+project!BugTracker.Service.Models.Project√
+¿
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs? ?(
+%9"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*.
+,
+project!BugTracker.Service.Models.ProjectÅ
+˛
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs@# @(2,
+project!BugTracker.Service.Models.Project"__annotation*
+
+%9*
+0:,
+project!BugTracker.Service.Models.ProjectB42
+0BugTracker.Service.Controllers.ProjectController

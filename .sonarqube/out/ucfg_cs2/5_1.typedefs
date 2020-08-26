@@ -1,0 +1,7 @@
+û
+BugTracker.Storing.Startupobject“
+:Startup(Microsoft.Extensions.Configuration.IConfiguration)UBugTracker.Storing.Startup.Startup(Microsoft.Extensions.Configuration.IConfiguration)»
+NConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)iBugTracker.Storing.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)ú
+mConfigure(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Hosting.IWebHostEnvironment)ˆBugTracker.Storing.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Hosting.IWebHostEnvironment)A
+Configuration.get,BugTracker.Storing.Startup.Configuration.getA
+Configuration.set,BugTracker.Storing.Startup.Configuration.set

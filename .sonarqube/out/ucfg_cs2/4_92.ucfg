@@ -1,0 +1,84 @@
+
+HBugTracker.Service.HttpHandler.TicketHttpHandler.DeleteTicketsAsync(int)∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csL L(."0*Ø
+0˚¯
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csN N(* 
+%0System.Net.Http.HttpClient"System.Net.Http.HttpClientñ
+ì
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csN N((
+
+%1void"'System.Net.Http.HttpClient.HttpClient()*"
+ 
+%0System.Net.Http.HttpClientç
+ä
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csN N(*$
+clientSystem.Net.Http.HttpClient"__id*"
+ 
+%0System.Net.Http.HttpClient*
+1*ë	
+1¸
+˘
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csP0 P(c
+%2"__concat*%#
+!http://localhost:5002/api/ticket/*
+""…
+∆
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csP P(d*
+%3$System.Threading.Tasks.Task<TResult>".System.Net.Http.HttpClient.DeleteAsync(string)*&
+$
+clientSystem.Net.Http.HttpClient*
+
+%2¸
+˘
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csP P(d/
+response#System.Net.Http.HttpResponseMessage"__id*
+""π
+∂
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csQ Q((
+
+%4bool";System.Net.Http.HttpResponseMessage.IsSuccessStatusCode.get*1
+/
+response#System.Net.Http.HttpResponseMessage*
+2
+3*Í
+2ü
+ú
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csS
+ S(@
+
+%5void" System.Console.WriteLine(string)*"
+System.Console*
+Delete Succesful - Handler"¬
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csT
+ T(
+""*Ó
+3£
+†
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csX
+ X(D
+
+%6void" System.Console.WriteLine(string)*"
+System.Console*" 
+Delete not succesful - Handler"¬
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.csY
+ Y(
+""*
+4*
+5*’
+5"œ
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/TicketHttpHandler.cs\ \(
+implicit return:	
+idintB42
+0BugTracker.Service.HttpHandler.TicketHttpHandler

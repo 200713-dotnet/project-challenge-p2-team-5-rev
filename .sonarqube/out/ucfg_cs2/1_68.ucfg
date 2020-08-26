@@ -1,0 +1,30 @@
+
+5BugTracker.Service.Controllers.TicketController.Get()¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs9 (<"2*¥
+0ò
+ï
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs (6
+%00BugTracker.Service.HttpHandler.TicketHttpHandler"__id*v*t1
+/BugTracker.Service.Controllers.TicketController"?
+httpHandler0BugTracker.Service.HttpHandler.TicketHttpHandleræ
+ã
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs (0*
+%1$System.Threading.Tasks.Task<TResult>"BBugTracker.Service.HttpHandler.TicketHttpHandler.GetTicketsAsync()*8
+6
+%00BugTracker.Service.HttpHandler.TicketHttpHandler"Á
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs (1
+""*Ô
+1"Î
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs (
+implicit return*Û
+2Ð
+Í
+¶
+«/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/TicketController.cs9 (<
+%2"__entrypoint*
+0B31
+/BugTracker.Service.Controllers.TicketController

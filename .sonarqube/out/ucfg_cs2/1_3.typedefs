@@ -1,0 +1,6 @@
+œ
+.BugTracker.Service.HttpHandler.UserHttpHandlerobjectQ
+GetUsersAsync()>BugTracker.Service.HttpHandler.UserHttpHandler.GetUsersAsync()ç
+-PostUserAsync(BugTracker.Service.Models.User)\BugTracker.Service.HttpHandler.UserHttpHandler.PostUserAsync(BugTracker.Service.Models.User)[
+DeleteUserAsync(int)CBugTracker.Service.HttpHandler.UserHttpHandler.DeleteUserAsync(int)U
+UserHttpHandler()@BugTracker.Service.HttpHandler.UserHttpHandler.UserHttpHandler()

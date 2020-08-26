@@ -1,0 +1,9 @@
+ã
+0BugTracker.Service.HttpHandler.TicketHttpHandlerobjectW
+GetTicketsAsync()BBugTracker.Service.HttpHandler.TicketHttpHandler.GetTicketsAsync()e
+GetTicketsByIdAsync(int)IBugTracker.Service.HttpHandler.TicketHttpHandler.GetTicketsByIdAsync(int)i
+GetTicketsByProjectId(int)KBugTracker.Service.HttpHandler.TicketHttpHandler.GetTicketsByProjectId(int)Ÿ
+5PutTicketAsync(int, BugTracker.Service.Models.Ticket)fBugTracker.Service.HttpHandler.TicketHttpHandler.PutTicketAsync(int, BugTracker.Service.Models.Ticket)—
+1PostTicketAsync(BugTracker.Service.Models.Ticket)bBugTracker.Service.HttpHandler.TicketHttpHandler.PostTicketAsync(BugTracker.Service.Models.Ticket)c
+DeleteTicketsAsync(int)HBugTracker.Service.HttpHandler.TicketHttpHandler.DeleteTicketsAsync(int)[
+TicketHttpHandler()DBugTracker.Service.HttpHandler.TicketHttpHandler.TicketHttpHandler()

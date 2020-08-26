@@ -1,0 +1,7 @@
+Í
+3BugTracker.Service.Models.Abstracts.TicketAttributeobjectZ
+TicketAttribute()EBugTracker.Service.Models.Abstracts.TicketAttribute.TicketAttribute()H
+Name.get<BugTracker.Service.Models.Abstracts.TicketAttribute.Name.getH
+Name.set<BugTracker.Service.Models.Abstracts.TicketAttribute.Name.setN
+Tickets.get?BugTracker.Service.Models.Abstracts.TicketAttribute.Tickets.getN
+Tickets.set?BugTracker.Service.Models.Abstracts.TicketAttribute.Tickets.set

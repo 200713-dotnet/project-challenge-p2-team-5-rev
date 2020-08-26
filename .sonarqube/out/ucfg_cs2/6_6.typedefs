@@ -1,0 +1,6 @@
+ƒ
+,BugTracker.Client.Controllers.HomeController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectˆ
+bHomeController(Microsoft.Extensions.Logging.ILogger<BugTracker.Client.Controllers.HomeController>)èBugTracker.Client.Controllers.HomeController.HomeController(Microsoft.Extensions.Logging.ILogger<BugTracker.Client.Controllers.HomeController>)?
+Index()4BugTracker.Client.Controllers.HomeController.Index()C
+	Privacy()6BugTracker.Client.Controllers.HomeController.Privacy()?
+Error()4BugTracker.Client.Controllers.HomeController.Error()

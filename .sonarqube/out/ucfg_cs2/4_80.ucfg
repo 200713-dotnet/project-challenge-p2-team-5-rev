@@ -1,0 +1,83 @@
+
+JBugTracker.Service.HttpHandler.ProjectHttpHandler.GetProjectsByUserId(int)∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs% (8"0*Â
+0¸˘
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs   (! 
+%0System.Net.Http.HttpClient"System.Net.Http.HttpClientó
+î
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs   (
+
+%1void"'System.Net.Http.HttpClient.HttpClient()*"
+ 
+%0System.Net.Http.HttpClientå
+â
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs 
+  (!"
+httpSystem.Net.Http.HttpClient"__id*"
+ 
+%0System.Net.Http.HttpClientí
+è
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs!) !(q
+%2"__concat*:8
+6http://localhost:5002/api/project/getprojectsbyuserid/*
+""≈
+¬
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs! !(r*
+%3$System.Threading.Tasks.Task<TResult>"+System.Net.Http.HttpClient.GetAsync(string)*$
+"
+httpSystem.Net.Http.HttpClient*
+
+%2˝
+˙
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs!
+ !(r/
+response#System.Net.Http.HttpResponseMessage"__id*
+""≈
+¬
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs" "('!
+%4System.Net.Http.HttpContent"/System.Net.Http.HttpResponseMessage.Content.get*1
+/
+response#System.Net.Http.HttpResponseMessage¿
+Ω
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs" "(;*
+%5$System.Threading.Tasks.Task<TResult>"/System.Net.Http.HttpContent.ReadAsStringAsync()*#
+!
+%4System.Net.Http.HttpContent‹
+Ÿ
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs"
+ "(;
+jsonstring"__id*
+""’
+“
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs# #(K(
+%6"System.Collections.Generic.List<T>"8Newtonsoft.Json.JsonConvert.DeserializeObject<T>(string)*"
+Newtonsoft.Json.JsonConvert*
+
+jsonstring§
+°
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs#
+ #(K2
+deserialized"System.Collections.Generic.List<T>"__id**
+(
+%6"System.Collections.Generic.List<T>"Ò
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs$ $(4
+2
+deserialized"System.Collections.Generic.List<T>*÷
+1"–
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs% %(
+implicit return:	
+idintB53
+1BugTracker.Service.HttpHandler.ProjectHttpHandler

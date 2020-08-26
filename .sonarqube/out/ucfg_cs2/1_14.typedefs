@@ -1,0 +1,23 @@
+ã	
+BugTracker.Service.Models.User.BugTracker.Service.Models.Abstracts.EntityBaseobject/
+User()%BugTracker.Service.Models.User.User()=
+FirstName.get,BugTracker.Service.Models.User.FirstName.get=
+FirstName.set,BugTracker.Service.Models.User.FirstName.set;
+LastName.get+BugTracker.Service.Models.User.LastName.get;
+LastName.set+BugTracker.Service.Models.User.LastName.set5
+	Email.get(BugTracker.Service.Models.User.Email.get5
+	Email.set(BugTracker.Service.Models.User.Email.set5
+	Phone.get(BugTracker.Service.Models.User.Phone.get5
+	Phone.set(BugTracker.Service.Models.User.Phone.set;
+Password.get+BugTracker.Service.Models.User.Password.get;
+Password.set+BugTracker.Service.Models.User.Password.set7
+
+RoleID.get)BugTracker.Service.Models.User.RoleID.get7
+
+RoleID.set)BugTracker.Service.Models.User.RoleID.set3
+Role.get'BugTracker.Service.Models.User.Role.get3
+Role.set'BugTracker.Service.Models.User.Role.setK
+SubmittedTickets.get3BugTracker.Service.Models.User.SubmittedTickets.getK
+SubmittedTickets.set3BugTracker.Service.Models.User.SubmittedTickets.setI
+AssignedTickets.get2BugTracker.Service.Models.User.AssignedTickets.getI
+AssignedTickets.set2BugTracker.Service.Models.User.AssignedTickets.set

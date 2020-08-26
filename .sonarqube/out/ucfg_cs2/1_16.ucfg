@@ -1,0 +1,40 @@
+
+WBugTracker.Service.Controllers.UserController.PostAsync(BugTracker.Service.Models.User)´
+©/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/UserController.cs% (."2*¯
+0ÄÁ
+´
+©/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/UserController.cs   ('
+%0!Microsoft.AspNetCore.Mvc.OkResult",Microsoft.AspNetCore.Mvc.ControllerBase.Ok()*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase2Ok()"â
+´
+©/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/UserController.cs   ()
+'
+%0!Microsoft.AspNetCore.Mvc.OkResult*Ò
+1"Ì
+´
+©/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/UserController.cs! !(
+implicit return*»
+2ø
+õ
+´
+©/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/UserController.cs% (.
+%1"__entrypoint*(
+&
+userBugTracker.Service.Models.Userº
+·
+´
+©/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/UserController.cs (
+%2"
+__annotate*B@
+>Microsoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute()*(
+&
+userBugTracker.Service.Models.Userø
+õ
+´
+©/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/UserController.cs/ (8&
+userBugTracker.Service.Models.User"__annotation*
+
+%2*
+0:&
+userBugTracker.Service.Models.UserB1/
+-BugTracker.Service.Controllers.UserController

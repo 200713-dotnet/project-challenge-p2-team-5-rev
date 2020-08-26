@@ -1,0 +1,7 @@
+organization=rev-team-5
+projectKey=p2-bug-tracker
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.11195
+dashboardUrl=https://sonarcloud.io/dashboard?id=p2-bug-tracker
+ceTaskId=AXQoKNQVI8lZ-QbqwCNL
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXQoKNQVI8lZ-QbqwCNL

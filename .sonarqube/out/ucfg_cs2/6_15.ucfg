@@ -1,0 +1,102 @@
+
+4BugTracker.Client.Controllers.HomeController.Error()≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs   (""6*˚
+0ëé
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs" "(n-
+%0'BugTracker.Client.Models.ErrorViewModel"'BugTracker.Client.Models.ErrorViewModel∞
+≠
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs" "(*
+
+%1void"8BugTracker.Client.Models.ErrorViewModel.ErrorViewModel()*/
+-
+%0'BugTracker.Client.Models.ErrorViewModel¶
+£
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs"9 "(I!
+%2System.Diagnostics.Activity"'System.Diagnostics.Activity.Current.get*"
+System.Diagnostics.Activity*
+1
+2*õ
+2ê
+ç
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs"K "(M
+%3string""System.Diagnostics.Activity.Id.get*#
+!
+%2System.Diagnostics.Activity*
+1*
+1*
+3
+4*À
+3Ã
+…
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs"Q "(\+
+%7%Microsoft.AspNetCore.Http.HttpContext"7Microsoft.AspNetCore.Mvc.ControllerBase.HttpContext.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBase±
+Æ
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs"Q "(l
+%8string"9Microsoft.AspNetCore.Http.HttpContext.TraceIdentifier.get*-
++
+%7%Microsoft.AspNetCore.Http.HttpContext›
+⁄
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs"Q "(l
+%6string"__id*
+
+%8string›
+⁄
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs"Q "(l
+%4string"__id*
+
+%6string*
+4*È
+4Ω
+∫
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs"- "(l
+
+%9void"5BugTracker.Client.Models.ErrorViewModel.RequestId.set*/
+-
+%0'BugTracker.Client.Models.ErrorViewModel*
+
+%4string€
+ÿ
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs" "(o
+%10void"$bugtracker.client/views/shared/error*
+
+%11*/
+-
+%0'BugTracker.Client.Models.ErrorViewModel*
+
+%ViewBagDataAllobject*
+
+%ViewBagDataHtmlobject*
+
+%TempDataAllobject*
+
+%TempDataHtmlobject* 
+
+%HttpContextItemsAllobject*!
+
+%HttpContextItemsHtmlobject"≈
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs" "(p
+
+%10void*—
+5"À
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs# #(	
+implicit return*Ÿ
+6Œ
+À
+≥
+®/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/Controllers/HomeController.cs   ("
+%12"__entrypoint*
+0B0.
+,BugTracker.Client.Controllers.HomeController

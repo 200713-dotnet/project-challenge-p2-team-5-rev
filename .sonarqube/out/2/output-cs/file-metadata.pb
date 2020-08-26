@@ -1,0 +1,12 @@
+Ñ
+Å/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.csutf-8Ó
+Ç/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.csutf-8Ô
+È/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/obj/Debug/netcoreapp3.1/Razor/Views/Home/Register.cshtml.g.csutf-8Ö
+Ê/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/obj/Debug/netcoreapp3.1/Razor/Views/Product/Product.cshtml.g.csutf-8Ó
+Ç/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.csutf-8Õ
+É/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.csutf-8ç
+Û/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.csutf-8Ô
+È/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/obj/Debug/netcoreapp3.1/Razor/Views/User/UserPage.cshtml.g.csutf-8Ó
+Ç/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.csutf-8Ñ
+Å/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.csutf-8Û
+Ï/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Client/obj/Debug/netcoreapp3.1/BugTracker.Client.RazorTargetAssemblyInfo.csutf-8

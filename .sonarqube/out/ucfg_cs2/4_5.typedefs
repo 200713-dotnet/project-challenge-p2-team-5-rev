@@ -1,0 +1,9 @@
+ó
+1BugTracker.Service.HttpHandler.ProjectHttpHandlerobjectZ
+GetProjectsAsync()DBugTracker.Service.HttpHandler.ProjectHttpHandler.GetProjectsAsync()f
+GetProjectByIdAsync(int)JBugTracker.Service.HttpHandler.ProjectHttpHandler.GetProjectByIdAsync(int)f
+GetProjectsByUserId(int)JBugTracker.Service.HttpHandler.ProjectHttpHandler.GetProjectsByUserId(int)¤
+7PutProjectAsync(int, BugTracker.Service.Models.Project)iBugTracker.Service.HttpHandler.ProjectHttpHandler.PutProjectAsync(int, BugTracker.Service.Models.Project)œ
+3PostProjectAsync(BugTracker.Service.Models.Project)eBugTracker.Service.HttpHandler.ProjectHttpHandler.PostProjectAsync(BugTracker.Service.Models.Project)d
+DeleteProjectAsync(int)IBugTracker.Service.HttpHandler.ProjectHttpHandler.DeleteProjectAsync(int)^
+ProjectHttpHandler()FBugTracker.Service.HttpHandler.ProjectHttpHandler.ProjectHttpHandler()

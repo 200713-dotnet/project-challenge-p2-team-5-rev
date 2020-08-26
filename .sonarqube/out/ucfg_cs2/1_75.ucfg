@@ -1,0 +1,40 @@
+
+IBugTracker.Service.Controllers.ProjectController.GetProjectsByUserId(int)∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs&: &(M"2*“	
+0ì
+ê
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs( ((0
+
+%0void" System.Console.WriteLine(string)*"
+System.Console*
+get by user Idˆ
+Û
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs) )(7
+%11BugTracker.Service.HttpHandler.ProjectHttpHandler"__id*x*v2
+0BugTracker.Service.Controllers.ProjectController"@
+httpHandler1BugTracker.Service.HttpHandler.ProjectHttpHandler¯
+ı
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs) )(6*
+%2$System.Threading.Tasks.Task<TResult>"JBugTracker.Service.HttpHandler.ProjectHttpHandler.GetProjectsByUserId(int)*9
+7
+%11BugTracker.Service.HttpHandler.ProjectHttpHandler*
+"""¬
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs) )(7
+""*’
+1"œ
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs* *(
+implicit return*‰
+2Ÿ
+÷
+∑
+¨/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/Controllers/ProjectController.cs&: &(M
+%3"__entrypoint*
+""*
+0:	
+idintB42
+0BugTracker.Service.Controllers.ProjectController

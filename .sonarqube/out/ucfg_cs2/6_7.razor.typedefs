@@ -1,0 +1,14 @@
+°
+AspNetCore.Views_User_UserPage0Microsoft.AspNetCore.Mvc.Razor.RazorPage<TModel>(Microsoft.AspNetCore.Mvc.Razor.RazorPage,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseobject?
+ExecuteAsync()-AspNetCore.Views_User_UserPage.ExecuteAsync()M
+Views_User_UserPage()4AspNetCore.Views_User_UserPage.Views_User_UserPage()Y
+ModelExpressionProvider.get:AspNetCore.Views_User_UserPage.ModelExpressionProvider.getY
+ModelExpressionProvider.set:AspNetCore.Views_User_UserPage.ModelExpressionProvider.set1
+Url.get&AspNetCore.Views_User_UserPage.Url.get1
+Url.set&AspNetCore.Views_User_UserPage.Url.set=
+Component.get,AspNetCore.Views_User_UserPage.Component.get=
+Component.set,AspNetCore.Views_User_UserPage.Component.set3
+Json.get'AspNetCore.Views_User_UserPage.Json.get3
+Json.set'AspNetCore.Views_User_UserPage.Json.set3
+Html.get'AspNetCore.Views_User_UserPage.Html.get3
+Html.set'AspNetCore.Views_User_UserPage.Html.set

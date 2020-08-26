@@ -1,0 +1,84 @@
+
+IBugTracker.Service.HttpHandler.ProjectHttpHandler.DeleteProjectAsync(int)∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csK K(."0*≤
+0¸˘
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csM M(* 
+%0System.Net.Http.HttpClient"System.Net.Http.HttpClientó
+î
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csM M((
+
+%1void"'System.Net.Http.HttpClient.HttpClient()*"
+ 
+%0System.Net.Http.HttpClienté
+ã
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csM M(*$
+clientSystem.Net.Http.HttpClient"__id*"
+ 
+%0System.Net.Http.HttpClient*
+1*ñ	
+1˛
+˚
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csO0 O(d
+%2"__concat*&$
+"http://localhost:5002/api/project/*
+"" 
+«
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csO O(e*
+%3$System.Threading.Tasks.Task<TResult>".System.Net.Http.HttpClient.DeleteAsync(string)*&
+$
+clientSystem.Net.Http.HttpClient*
+
+%2˝
+˙
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csO O(e/
+response#System.Net.Http.HttpResponseMessage"__id*
+""∫
+∑
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csP P((
+
+%4bool";System.Net.Http.HttpResponseMessage.IsSuccessStatusCode.get*1
+/
+response#System.Net.Http.HttpResponseMessage*
+2
+3*Ï
+2†
+ù
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csR
+ R(@
+
+%5void" System.Console.WriteLine(string)*"
+System.Console*
+Delete Succesful - Handler"√
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csS
+ S(
+""*
+3§
+°
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csW
+ W(D
+
+%6void" System.Console.WriteLine(string)*"
+System.Console*" 
+Delete not succesful - Handler"√
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.csX
+ X(
+""*
+4*
+5*÷
+5"–
+∏
+≠/Users/cvchavez2/Developer/VisualStudioCode/Revature/in-training/2007_13_dotnet/projects/project-challenge-p2-team-5-rev/BugTracker.Service/HttpHandler/ProjectHttpHandler.cs[ [(
+implicit return:	
+idintB53
+1BugTracker.Service.HttpHandler.ProjectHttpHandler
