@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BugTracker.Storing.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,58 +15,65 @@ namespace BugTracker.Storing.Repositories
             _db = dbContext;
         }
 
-        public Users ReadUser(int id)
+        public async Task<Users> ReadUserAsync(int id)
         {
-            return _db.Users
+            return await _db.Users
+                .Include(x => x.Role)
+                .SingleOrDefaultAsync(x => x.UserId == id);
+        }
+
+        public async Task<Users> ReadUserByEmailAsync(string email)
+        {
+            return await _db.Users
                 .Include(x => x.AssignedTickets)
                 .Include(x => x.ManagedProjects)
                 .Include(x => x.Role)
                 .Include(x => x.SubmittedTickets)
                 .Include(x => x.UserProjects)
                     .ThenInclude(x => x.Project)
-                .SingleOrDefault(x => x.UserId == id);
+                .SingleOrDefaultAsync(x => x.Email == email);
         }
 
-        public List<Users> ReadAllUsers()
+        public async Task<List<Users>> ReadAllUsersAsync()
         {
-            return _db.Users
+            return await _db.Users
                 .Include(x => x.Role)
-                .ToList();
+                .ToListAsync();
         }
 
-        public List<Users> ReadUsersByRole(int roleId)
+        public async Task<List<Users>> ReadUsersByRoleAsync(int roleId)
         {
-            return _db.Users
+            return await _db.Users
                 .Where(x => x.RoleId == roleId)
                 .Include(x => x.Role)
-                .ToList();
+                .ToListAsync();
         }
 
-        public void CreateUser(string firstName, string lastName, string email, int roleId)
+        public async Task<List<UserRole>> ReadRoles()
         {
-            var user = new Users();
-
-            user.FirstName = firstName;
-            user.LastName = lastName;
-            user.Email = email;
-            user.Role = _db.UserRole.Single(x => x.RoleId == roleId);
-
-            _db.Users.Add(user);
-            _db.SaveChanges();
+            return await _db.UserRole.ToListAsync();
         }
 
-        public void UpdateUser(Users user)
+        public async Task<int> CreateUserAsync(Users user)
+        {
+            _db.Users.Add(user);
+            await _db.SaveChangesAsync();
+
+            return user.UserId;
+        }
+
+        public async Task UpdateUserAsync(Users user)
         {
             _db.Users.Update(user);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
 
-        public void DeleteUser(int id)
+        public async Task DeleteUserAsync(int id)
         {
             _db.Users.Remove(
-                _db.Users.SingleOrDefault(x => x.UserId == id)
+                await _db.Users.SingleOrDefaultAsync(x => x.UserId == id)
             );
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
     }
 }
