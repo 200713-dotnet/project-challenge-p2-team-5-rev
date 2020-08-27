@@ -20,6 +20,15 @@ namespace BugTracker.Storing.Repositories
             return await _db.Project
                 .Include(x => x.Manager)
                 .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Submitter)
+                .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Dev)
+                .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Priority)
+                .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Status)
+                .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Type)
                 .Include(x => x.UserProjects)
                     .ThenInclude(x => x.User)
                 .SingleOrDefaultAsync(p => p.ProjectId == id);
@@ -50,7 +59,7 @@ namespace BugTracker.Storing.Repositories
         public async Task DeleteProjectAsync(int id)
         {
             _db.Remove(
-                _db.Project.SingleOrDefault(x => x.ProjectId == id)
+                await _db.Project.SingleOrDefaultAsync(x => x.ProjectId == id)
             );
             await _db.SaveChangesAsync();
         }
@@ -59,8 +68,8 @@ namespace BugTracker.Storing.Repositories
         {
             var userProject = new UserProject();
 
-            userProject.Project = _db.Project.Single(x => x.ProjectId == projectId);
-            userProject.User = _db.Users.Single(x => x.UserId == userId);
+            userProject.Project = await _db.Project.SingleAsync(x => x.ProjectId == projectId);
+            userProject.User = await _db.Users.SingleAsync(x => x.UserId == userId);
 
             _db.UserProject.Add(userProject);
             await _db.SaveChangesAsync();
