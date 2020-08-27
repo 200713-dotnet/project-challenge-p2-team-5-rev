@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BugTracker.Storing.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,75 +15,47 @@ namespace BugTracker.Storing.Repositories
             _db = dbContext;
         }
 
-        public Project ReadProject(int id)
+        public async Task<Project> ReadProjectAsync(int id)
         {
-            return _db.Project
+            return await _db.Project
                 .Include(x => x.Manager)
                 .Include(x => x.Tickets)
                 .Include(x => x.UserProjects)
                     .ThenInclude(x => x.User)
-                .SingleOrDefault(p => p.ProjectId == id);
+                .SingleOrDefaultAsync(p => p.ProjectId == id);
         }
 
-        public void CreateProject(string title, string description, int managerId)
+        public async Task<List<Project>> ReadProjectsByUserAsync(int userId)
         {
-            var project = new Project();
-
-            project.Title = title;
-            project.Description = description;
-            project.Manager = _db.Users.Single(x => x.UserId == managerId);
-
-            _db.Project.Add(project);
-            _db.SaveChanges();
+            return await _db.Project
+                .Where(x => x.ManagerId == userId || x.UserProjects.Any(u => u.UserId == userId))
+                .Include(x => x.Manager)
+                .ToListAsync();
         }
 
-        public void UpdateProject(Project project)
+        public async Task<int> CreateProjectAsync(Project project)
+        {
+            _db.Project.Add(project);
+            await _db.SaveChangesAsync();
+
+            return project.ProjectId;
+        }
+
+        public async Task UpdateProjectAsync(Project project)
         {
             _db.Project.Update(project);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
 
-        // public void UpdateTitle(int id, string title)
-        // {
-        //     var project = _db.Project.SingleOrDefault(x => x.ProjectId == id);
-
-        //     project.Title = title;
-
-        //     _db.Project.Update(project);
-        //     _db.SaveChanges();
-        // }
-
-        // public void UpdateDescription(int id, string description)
-        // {
-        //     var project = _db.Project.SingleOrDefault(x => x.ProjectId == id);
-
-        //     project.Description = description;
-
-        //     _db.Project.Update(project);
-        //     _db.SaveChanges();
-        // }
-
-        // public void UpdateManger(int id, int managerId)
-        // {
-        //     var project = _db.Project
-        //         .Include(x => x.Manager)
-        //         .SingleOrDefault(x => x.ProjectId == id);
-
-        //     project.Manager = _db.Users.Single(x => x.UserId == managerId);
-
-        //     _db.Project.Update(project);
-        //     _db.SaveChanges();
-        // }
-
-        public void DeleteProject(int id)
+        public async Task DeleteProjectAsync(int id)
         {
             _db.Remove(
                 _db.Project.SingleOrDefault(x => x.ProjectId == id)
             );
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
 
-        public void AssignUserToProject(int projectId, int userId)
+        public async Task AssignUserToProjectAsync(int projectId, int userId)
         {
             var userProject = new UserProject();
 
@@ -89,7 +63,7 @@ namespace BugTracker.Storing.Repositories
             userProject.User = _db.Users.Single(x => x.UserId == userId);
 
             _db.UserProject.Add(userProject);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
         }
     }
 }
