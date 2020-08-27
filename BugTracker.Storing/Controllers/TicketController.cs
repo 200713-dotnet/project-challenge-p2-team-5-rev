@@ -28,6 +28,18 @@ namespace BugTracker.Storing.Controllers
             return Ok(ticket);
         }
 
+        [HttpGet("history/{id}")]
+        public async Task<ActionResult<IEnumerable<Ticket>>> GetHistoryAsync(int id)
+        {
+            var tickets = await _repo.ReadTicketHistoryAsync(id);
+
+            if (tickets == null)
+            {
+                return NotFound();
+            }
+            return Ok(tickets);
+        }
+
         [HttpGet("priorities")]
         public async Task<ActionResult<IEnumerable<TicketPriority>>> GetPriorities()
         {
@@ -56,6 +68,13 @@ namespace BugTracker.Storing.Controllers
                 new { id = ticketId },
                 ticket
             );
+        }
+
+        [HttpPost("comment/{ticketId}")]
+        public async Task<IActionResult> PostCommentAsync(int ticketId, Comment comment)
+        {
+            await _repo.AddCommentAsync(ticketId, comment);
+            return NoContent();
         }
 
         [HttpPut]

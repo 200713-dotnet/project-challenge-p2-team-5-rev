@@ -72,8 +72,10 @@ namespace BugTracker.Storing.Repositories
             return ticket.TicketId;
         }
 
-        public async Task AddCommentAsync(Comment comment)
+        public async Task AddCommentAsync(int ticketId, Comment comment)
         {
+            comment.Ticket = await _db.Ticket.SingleAsync(x => x.TicketId == ticketId);
+
             _db.Comment.Add(comment);
             await _db.SaveChangesAsync();
         }
