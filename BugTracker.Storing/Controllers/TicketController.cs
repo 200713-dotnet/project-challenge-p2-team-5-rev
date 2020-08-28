@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BugTracker.Storing.DTO;
-using BugTracker.Storing.Models;
 using BugTracker.Storing.Repositories;
 using Microsoft.AspNetCore.Mvc;
 

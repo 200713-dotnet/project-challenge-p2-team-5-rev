@@ -129,11 +129,22 @@ namespace BugTracker.Storing.Repositories
         {
             var project = await _db.Project
                 .Include(x => x.UserProjects)
+                .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Comments)
                 .SingleOrDefaultAsync(x => x.ProjectId == id);
 
             foreach (var userProject in project.UserProjects)
             {
                 _db.Remove(userProject);
+            }
+
+            foreach (var ticket in project.Tickets)
+            {
+                foreach (var comment in ticket.Comments)
+                {
+                    _db.Remove(comment);
+                }
+                _db.Remove(ticket);
             }
 
             _db.Remove(project);

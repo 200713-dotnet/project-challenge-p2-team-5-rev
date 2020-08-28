@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BugTracker.Storing.DTO;
-using BugTracker.Storing.Models;
 using BugTracker.Storing.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +17,7 @@ namespace BugTracker.Storing.Controllers
         }
 
         [HttpGet("user/{userId}")]
-        public async Task<ActionResult<IEnumerable<ProjectDTO>>> GetAllAsync(int userId)
+        public async Task<ActionResult<IEnumerable<ProjectDTO>>> GetByUserAsync(int userId)
         {
             if (await _repo.UserExistsAsync(userId))
             {
