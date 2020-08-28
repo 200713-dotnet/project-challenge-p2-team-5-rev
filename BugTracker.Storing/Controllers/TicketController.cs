@@ -62,6 +62,22 @@ namespace BugTracker.Storing.Controllers
             {
                 return NotFound("Submitter not found");
             }
+            if (ticket.Dev.UserId != 0 && !await _repo.UserExistsAsync(ticket.Dev.UserId))
+            {
+                return NotFound("Dev not found");
+            }
+            if (!await _repo.PriorityExistsAsync(ticket.Priority))
+            {
+                return NotFound("Priority not found");
+            }
+            if (!await _repo.StatusExistsAsync(ticket.Status))
+            {
+                return NotFound("Status not found");
+            }
+            if (!await _repo.TypeExistsAsync(ticket.Type))
+            {
+                return NotFound("Type not found");
+            }
 
             var newId = await _repo.CreateTicketAsync(projectId, ticket);
 
