@@ -21,7 +21,7 @@ CREATE TABLE Projects.Project
     ProjectId INT NOT NULL IDENTITY(1, 1),
     Title NVARCHAR(100) NOT NULL,
     [Description] NVARCHAR(500) NOT NULL,
-    ManagerId INT NULL,
+    ManagerId INT NOT NULL,
     CONSTRAINT PK_ProjectId PRIMARY KEY (ProjectId)
 );
 
