@@ -123,6 +123,9 @@ namespace BugTracker.Storing
                     .WithMany(p => p.UpdatedTickets)
                     .HasForeignKey(d => d.UpdaterId)
                     .HasConstraintName("FK_UpdaterId");
+
+                entity.Property(d => d.ValidFrom).HasDefaultValue();
+                entity.Property(d => d.ValidTo).HasDefaultValue();
             });
 
             modelBuilder.Entity<TicketPriority>(entity =>

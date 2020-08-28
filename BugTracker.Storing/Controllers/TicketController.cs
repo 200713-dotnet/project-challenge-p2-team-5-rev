@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BugTracker.Storing.DTO;
 using BugTracker.Storing.Models;
 using BugTracker.Storing.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -16,89 +17,124 @@ namespace BugTracker.Storing.Controllers
             _repo = new TicketRepo(dbContext);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Ticket>> GetAsync(int id)
+        [HttpGet("{ticketId}")]
+        [ActionName("GetAsync")]
+        public async Task<ActionResult<TicketDTO>> GetAsync(int ticketId)
         {
-            var ticket = await _repo.ReadTicketAsync(id);
-
-            if (ticket == null)
+            if (await _repo.TicketExistsAsync(ticketId))
             {
-                return NotFound();
+                return Ok(await _repo.ReadTicketAsync(ticketId));
             }
-            return Ok(ticket);
+            return NotFound();
         }
 
-        [HttpGet("history/{id}")]
-        public async Task<ActionResult<IEnumerable<Ticket>>> GetHistoryAsync(int id)
+        [HttpGet("history/{ticketId}")]
+        public async Task<ActionResult<IEnumerable<TicketDTO>>> GetHistoryAsync(int ticketId)
         {
-            var tickets = await _repo.ReadTicketHistoryAsync(id);
-
-            if (tickets == null)
+            if (await _repo.TicketExistsAsync(ticketId))
             {
-                return NotFound();
+                return Ok(await _repo.ReadTicketHistoryAsync(ticketId));
             }
-            return Ok(tickets);
+            return NotFound();
         }
 
         [HttpGet("priorities")]
-        public async Task<ActionResult<IEnumerable<TicketPriority>>> GetPriorities()
+        public async Task<ActionResult<IEnumerable<string>>> GetPriorities()
         {
-            return await _repo.ReadPrioritiesAsync();
+            return Ok(await _repo.ReadPrioritiesAsync());
         }
 
         [HttpGet("statuses")]
-        public async Task<ActionResult<IEnumerable<TicketStatus>>> GetStatuses()
+        public async Task<ActionResult<IEnumerable<string>>> GetStatuses()
         {
-            return await _repo.ReadStatusesAsync();
+            return Ok(await _repo.ReadStatusesAsync());
         }
 
         [HttpGet("types")]
-        public async Task<ActionResult<IEnumerable<TicketType>>> GetTypes()
+        public async Task<ActionResult<IEnumerable<string>>> GetTypes()
         {
-            return await _repo.ReadTypesAsync();
+            return Ok(await _repo.ReadTypesAsync());
         }
 
         [HttpPost("{projectId}")]
-        public async Task<ActionResult<Ticket>> PostAsync(int projectId, Ticket ticket)
+        public async Task<ActionResult<TicketDTO>> PostAsync(int projectId, TicketDTO ticket)
         {
-            var ticketId = await _repo.CreateTicketAsync(projectId, ticket);
+            if (!await _repo.UserExistsAsync(ticket.Submitter.UserId))
+            {
+                return NotFound("Submitter not found");
+            }
+
+            var newId = await _repo.CreateTicketAsync(projectId, ticket);
 
             return CreatedAtAction(
                 nameof(GetAsync),
-                new { id = ticketId },
-                ticket
+                new { ticketId = newId },
+                await _repo.ReadTicketAsync(newId)
             );
         }
 
         [HttpPost("comment/{ticketId}")]
-        public async Task<IActionResult> PostCommentAsync(int ticketId, Comment comment)
+        public async Task<ActionResult<TicketDTO>> PostCommentAsync(int ticketId, CommentDTO comment)
         {
+            if (!await _repo.UserExistsAsync(comment.Commenter.UserId))
+            {
+                return NotFound("Commenter not found");
+            }
+
             await _repo.AddCommentAsync(ticketId, comment);
-            return NoContent();
+
+            return CreatedAtAction(
+                nameof(GetAsync),
+                new { ticketId = ticketId },
+                await _repo.ReadTicketAsync(ticketId)
+            );
         }
 
         [HttpPut]
-        public async Task<ActionResult> PutAsync(Ticket ticket)
+        public async Task<ActionResult> PutAsync(TicketDTO ticket)
         {
-            if (await _repo.ReadTicketAsync(ticket.ProjectId) == null)
+            if (!await _repo.TicketExistsAsync(ticket.TicketId))
             {
                 return NotFound();
+            }
+            if (ticket.Dev.UserId != 0 && !await _repo.UserExistsAsync(ticket.Dev.UserId))
+            {
+                return NotFound("Dev not found");
+            }
+            if (!await _repo.UserExistsAsync(ticket.Submitter.UserId))
+            {
+                return NotFound("Submitter not found");
+            }
+            if (!await _repo.UserExistsAsync(ticket.Updater.UserId))
+            {
+                return NotFound("Updater not found");
+            }
+            if (!await _repo.PriorityExistsAsync(ticket.Priority))
+            {
+                return NotFound("Priority not found");
+            }
+            if (!await _repo.StatusExistsAsync(ticket.Status))
+            {
+                return NotFound("Status not found");
+            }
+            if (!await _repo.TypeExistsAsync(ticket.Type))
+            {
+                return NotFound("Type not found");
             }
 
             await _repo.UpdateTicketAsync(ticket);
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(int id)
+        [HttpDelete("{ticketId}")]
+        public async Task<IActionResult> DeleteAsync(int ticketId)
         {
-            if (await _repo.ReadTicketAsync(id) == null)
+            if (await _repo.TicketExistsAsync(ticketId))
             {
-                return NotFound();
+                await _repo.DeleteTicketAsync(ticketId);
+                return NoContent();
             }
-
-            await _repo.DeleteTicketAsync(id);
-            return NoContent();
+            return NotFound();
         }
     }
 }

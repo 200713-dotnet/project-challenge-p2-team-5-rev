@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BugTracker.Storing.DTO;
 using BugTracker.Storing.Models;
 using BugTracker.Storing.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -16,64 +17,75 @@ namespace BugTracker.Storing.Controllers
             _repo = new ProjectRepo(dbContext);
         }
 
-        [HttpGet("user/{id}")]
-        public async Task<ActionResult<IEnumerable<Project>>> GetAllAsync(int userId)
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<IEnumerable<ProjectDTO>>> GetAllAsync(int userId)
         {
-            var projects = await _repo.ReadProjectsByUserAsync(userId);
-
-            if (projects == null)
+            if (await _repo.UserExistsAsync(userId))
             {
-                return NotFound();
+                var projects = await _repo.ReadProjectsByUserAsync(userId);
+
+                if (projects.Count == 0)
+                {
+                    return NoContent();
+                }
+                return Ok(projects);
             }
-            return Ok(projects);
+            return NotFound();
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Project>> GetAsync(int projectId)
+        [HttpGet("{projectId}")]
+        [ActionName("GetAsync")]
+        public async Task<ActionResult<ProjectDTO>> GetAsync(int projectId)
         {
-            var project = await _repo.ReadProjectAsync(projectId);
-
-            if (project == null)
+            if (await _repo.ProjectExistsAsync(projectId))
             {
-                return NotFound();
+                return Ok(await _repo.ReadProjectAsync(projectId));
             }
-            return Ok(project);
+            return NotFound();
         }
 
         [HttpPost]
-        public async Task<ActionResult<Project>> PostAsync(Project project)
+        public async Task<ActionResult<ProjectDTO>> PostAsync(ProjectDTO project)
         {
+            if (!await _repo.UserExistsAsync(project.Manager.UserId))
+            {
+                return NotFound("Manager not found");
+            }
+
             var newId = await _repo.CreateProjectAsync(project);
 
             return CreatedAtAction(
                 nameof(GetAsync),
-                new { id = newId },
-                project
+                new { projectId = newId },
+                await _repo.ReadProjectAsync(newId)
             );
         }
 
         [HttpPut]
-        public async Task<IActionResult> PutAsync(Project project)
+        public async Task<IActionResult> PutAsync(ProjectDTO project)
         {
-            if (await _repo.ReadProjectAsync(project.ProjectId) == null)
+            if (!await _repo.ProjectExistsAsync(project.ProjectId))
             {
-                return NotFound();
+                return NotFound("Project not found");
+            }
+            if (project.Manager.UserId != 0 && !await _repo.UserExistsAsync(project.Manager.UserId))
+            {
+                return NotFound("Manager not found");
             }
 
             await _repo.UpdateProjectAsync(project);
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(int id)
+        [HttpDelete("{projectId}")]
+        public async Task<IActionResult> DeleteAsync(int projectId)
         {
-            if (await _repo.ReadProjectAsync(id) == null)
+            if (await _repo.ProjectExistsAsync(projectId))
             {
-                return NotFound();
+                await _repo.DeleteProjectAsync(projectId);
+                return NoContent();
             }
-
-            await _repo.DeleteProjectAsync(id);
-            return NoContent();
+            return NotFound();
         }
     }
 }

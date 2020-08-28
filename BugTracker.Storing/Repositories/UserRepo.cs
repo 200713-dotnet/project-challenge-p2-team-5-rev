@@ -1,70 +1,97 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BugTracker.Storing.DTO;
 using BugTracker.Storing.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BugTracker.Storing.Repositories
 {
-    public class UserRepo
+    public class UserRepo : AbstractRepo
     {
-        private readonly BugTrackerDbContext _db;
+        public UserRepo(BugTrackerDbContext dbContext) : base(dbContext) { }
 
-        public UserRepo(BugTrackerDbContext dbContext)
+        public async Task<UserDTO> ReadUserAsync(int id)
         {
-            _db = dbContext;
-        }
-
-        public async Task<Users> ReadUserAsync(int id)
-        {
-            return await _db.Users
+            var user = await _db.Users
                 .Include(x => x.Role)
                 .SingleOrDefaultAsync(x => x.UserId == id);
+
+            return new UserDTO(user);
         }
 
-        public async Task<Users> ReadUserByEmailAsync(string email)
+        public async Task<UserDTO> ReadUserByEmailAsync(string email)
         {
-            return await _db.Users
-                .Include(x => x.AssignedTickets)
-                .Include(x => x.ManagedProjects)
+            var user = await _db.Users
                 .Include(x => x.Role)
-                .Include(x => x.SubmittedTickets)
-                .Include(x => x.UserProjects)
-                    .ThenInclude(x => x.Project)
                 .SingleOrDefaultAsync(x => x.Email == email);
+
+            return new UserDTO(user);
         }
 
-        public async Task<List<Users>> ReadAllUsersAsync()
+        public async Task<List<UserDTO>> ReadAllUsersAsync()
         {
-            return await _db.Users
+            var users = await _db.Users
                 .Include(x => x.Role)
                 .ToListAsync();
+
+            var userDTOList = new List<UserDTO>();
+
+            foreach (var user in users)
+            {
+                userDTOList.Add(new UserDTO(user));
+            }
+
+            return userDTOList;
         }
 
-        public async Task<List<Users>> ReadUsersByRoleAsync(int roleId)
+        public async Task<List<UserDTO>> ReadUsersByRoleAsync(string role)
         {
-            return await _db.Users
-                .Where(x => x.RoleId == roleId)
+            var users = await _db.Users
+                .Where(x => x.Role.Name == role)
                 .Include(x => x.Role)
                 .ToListAsync();
+
+            var userDTOList = new List<UserDTO>();
+
+            foreach (var user in users)
+            {
+                userDTOList.Add(new UserDTO(user));
+            }
+
+            return userDTOList;
         }
 
-        public async Task<List<UserRole>> ReadRoles()
+        public async Task<List<string>> ReadRoles()
         {
-            return await _db.UserRole.ToListAsync();
+            return await _db.UserRole.Select(x => x.Name).ToListAsync();
         }
 
-        public async Task<int> CreateUserAsync(Users user)
+        public async Task<int> CreateUserAsync(UserDTO userDTO)
         {
+            var user = new Users()
+            {
+                FirstName = userDTO.FirstName,
+                LastName = userDTO.LastName,
+                Email = userDTO.Email,
+                Role = await _db.UserRole.SingleAsync(x => x.Name == userDTO.Role)
+            };
+
             _db.Users.Add(user);
             await _db.SaveChangesAsync();
 
             return user.UserId;
         }
 
-        public async Task UpdateUserAsync(Users user)
+        public async Task UpdateUserAsync(UserDTO userDTO)
         {
-            _db.Users.Update(user);
+            var user = await _db.Users.SingleAsync(x => x.UserId == userDTO.UserId);
+
+            user.FirstName = userDTO.FirstName;
+            user.LastName = userDTO.LastName;
+            user.Email = userDTO.Email;
+            user.Role = await _db.UserRole.SingleAsync(x => x.Name == userDTO.Role);
+
             await _db.SaveChangesAsync();
         }
 

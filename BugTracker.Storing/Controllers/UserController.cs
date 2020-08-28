@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BugTracker.Storing.DTO;
 using BugTracker.Storing.Models;
 using BugTracker.Storing.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -17,93 +18,102 @@ namespace BugTracker.Storing.Controllers
         }
 
         [HttpGet("login/{email}")]
-        public async Task<ActionResult<Users>> LoginAsync(string email)
+        public async Task<ActionResult<UserDTO>> LoginAsync(string email)
         {
-            var user = await _repo.ReadUserByEmailAsync(email);
-
-            if (user == null)
+            if (await _repo.UserExistsAsync(email))
             {
-                return NotFound();
+                return Ok(await _repo.ReadUserByEmailAsync(email));
             }
-            return Ok(user);
+            return NotFound();
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Users>> GetAsync(int id)
+        [HttpGet("{userId}")]
+        [ActionName("GetAsync")]
+        public async Task<ActionResult<UserDTO>> GetAsync(int userId)
         {
-            var user = await _repo.ReadUserAsync(id);
-
-            if (user == null)
+            if (await _repo.UserExistsAsync(userId))
             {
-                return NotFound();
+                return Ok(await _repo.ReadUserAsync(userId));
             }
-            return Ok(user);
+            return NotFound();
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Users>>> GetAllAsync()
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetAllAsync()
         {
             var users = await _repo.ReadAllUsersAsync();
 
-            if (users == null)
+            if (users.Count == 0)
             {
-                return NotFound();
+                return NoContent();
             }
             return Ok(users);
         }
 
-        [HttpGet("byrole/{roleId}")]
-        public async Task<ActionResult<IEnumerable<Users>>> GetByRole(int roleId)
+        [HttpGet("byrole/{role}")]
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetByRoleAsync(string role)
         {
-            var users = await _repo.ReadUsersByRoleAsync(roleId);
-
-            if (users == null)
+            if (await _repo.RoleExistsAsync(role))
             {
-                return NotFound();
+                var users = await _repo.ReadUsersByRoleAsync(role);
+
+                if (users.Count == 0)
+                {
+                    return NoContent();
+                }
+                return Ok(users);
             }
-            return Ok(users);
+            return NotFound();
         }
 
         [HttpGet("roles")]
-        public async Task<ActionResult<IEnumerable<UserRole>>> GetRoles()
+        public async Task<ActionResult<IEnumerable<string>>> GetRolesAsync()
         {
-            return await _repo.ReadRoles();
+            return Ok(await _repo.ReadRoles());
         }
 
         [HttpPost]
-        public async Task<ActionResult<Users>> CreateUser(Users user)
+        public async Task<ActionResult<UserDTO>> PostAsync(UserDTO user)
         {
+            if (!await _repo.RoleExistsAsync(user.Role))
+            {
+                return NotFound("Role not found");
+            }
+
             var newId = await _repo.CreateUserAsync(user);
 
             return CreatedAtAction(
                 nameof(GetAsync),
-                new { id = newId },
-                user
+                new { userId = newId },
+                await _repo.ReadUserAsync(newId)
             );
         }
 
         [HttpPut]
-        public async Task<IActionResult> PutAsync(Users user)
+        public async Task<IActionResult> PutAsync(UserDTO user)
         {
-            if (await _repo.ReadUserAsync(user.UserId) == null)
+            if (!await _repo.UserExistsAsync(user.UserId))
             {
-                return NotFound();
+                return NotFound("User not found");
+            }
+            if (!await _repo.RoleExistsAsync(user.Role))
+            {
+                return NotFound("Role not found");
             }
 
             await _repo.UpdateUserAsync(user);
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(int id)
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> DeleteAsync(int userId)
         {
-            if (await _repo.ReadUserAsync(id) == null)
+            if (await _repo.UserExistsAsync(userId))
             {
-                return NotFound();
+                await _repo.DeleteUserAsync(userId);
+                return NoContent();
             }
-
-            await _repo.DeleteUserAsync(id);
-            return NoContent();
+            return NotFound();
         }
     }
 }
