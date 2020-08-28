@@ -61,19 +61,17 @@ namespace BugTracker.Service.Controllers
     }
 
     [HttpPost]
-    public IActionResult PostAsync(Project project)
+    public ActionResult<Project> PostAsync(Project project)
     {
-      var success = httpHandler.PostProjectAsync(project);
-      if (success.Result)
+      var newId = httpHandler.PostProjectAsync(project);
+      if (newId.Result > 0)
       {
+        project.ID = newId.Result;
         System.Console.WriteLine("Is Succesful - API");
-        return CreatedAtAction(nameof(GetById), new { id = project.ID }, project);
+        return CreatedAtAction(nameof(GetById), new { id = newId.Result }, project);
       }
-      else
-      {
-        System.Console.WriteLine("is not succesful - API");
-        return NotFound(); // FIXME
-      }
+      System.Console.WriteLine("Post Not succesful - API");
+      return NotFound();
     }
     // DELETE: api/Project/5
     [HttpDelete("{id}")]

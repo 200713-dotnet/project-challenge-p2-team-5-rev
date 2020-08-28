@@ -54,22 +54,25 @@ namespace BugTracker.Service.HttpHandler
         }
       }
     }
-    public async Task<bool> PostProjectAsync(Project project)
+    public async Task<int> PostProjectAsync(Project project)
     {
       var json = JsonConvert.SerializeObject(project);
       var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
       var httpClient = new HttpClient();
       var response = await httpClient.PostAsync("http://localhost:5002/api/project", stringContent);
 
+      json = await response.Content.ReadAsStringAsync();
+      project = JsonConvert.DeserializeObject<Project>(json);
+
       if (response.IsSuccessStatusCode)
       {
         System.Console.WriteLine("Is Succesful - Handler");
-        return true;
+        return project.ID;
       }
       else
       {
         System.Console.WriteLine("is not succesful - Handler");
-        return false;
+        return -1;
       }
     }
     public async Task<bool> DeleteProjectAsync(int id)
