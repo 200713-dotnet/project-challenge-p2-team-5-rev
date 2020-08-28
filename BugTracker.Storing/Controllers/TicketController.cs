@@ -24,7 +24,7 @@ namespace BugTracker.Storing.Controllers
             {
                 return Ok(await _repo.ReadTicketAsync(ticketId));
             }
-            return NotFound();
+            return NotFound("Ticket not found");
         }
 
         [HttpGet("history/{ticketId}")]
@@ -34,7 +34,7 @@ namespace BugTracker.Storing.Controllers
             {
                 return Ok(await _repo.ReadTicketHistoryAsync(ticketId));
             }
-            return NotFound();
+            return NotFound("Ticket not found");
         }
 
         [HttpGet("priorities")]
@@ -58,23 +58,31 @@ namespace BugTracker.Storing.Controllers
         [HttpPost("{projectId}")]
         public async Task<ActionResult<TicketDTO>> PostAsync(int projectId, TicketDTO ticket)
         {
-            if (!await _repo.UserExistsAsync(ticket.Submitter.UserId))
+            if (ticket is null)
+            {
+                return BadRequest();
+            }
+            if (!await _repo.ProjectExistsAsync(projectId))
+            {
+                return NotFound("Project not found");
+            }
+            if (ticket.Submitter is null || !await _repo.UserExistsAsync(ticket.Submitter.UserId))
             {
                 return NotFound("Submitter not found");
             }
-            if (ticket.Dev.UserId != 0 && !await _repo.UserExistsAsync(ticket.Dev.UserId))
+            if (ticket.Dev != null && ticket.Dev.UserId != 0 && !await _repo.UserExistsAsync(ticket.Dev.UserId))
             {
                 return NotFound("Dev not found");
             }
-            if (!await _repo.PriorityExistsAsync(ticket.Priority))
+            if (ticket.Priority is null || !await _repo.PriorityExistsAsync(ticket.Priority))
             {
                 return NotFound("Priority not found");
             }
-            if (!await _repo.StatusExistsAsync(ticket.Status))
+            if (ticket.Status is null || !await _repo.StatusExistsAsync(ticket.Status))
             {
                 return NotFound("Status not found");
             }
-            if (!await _repo.TypeExistsAsync(ticket.Type))
+            if (ticket.Type is null || !await _repo.TypeExistsAsync(ticket.Type))
             {
                 return NotFound("Type not found");
             }
@@ -108,31 +116,35 @@ namespace BugTracker.Storing.Controllers
         [HttpPut]
         public async Task<ActionResult> PutAsync(TicketDTO ticket)
         {
+            if (ticket is null)
+            {
+                return BadRequest("Ticket is null");
+            }
             if (!await _repo.TicketExistsAsync(ticket.TicketId))
             {
-                return NotFound();
+                return NotFound("Ticket not found");
             }
-            if (ticket.Dev.UserId != 0 && !await _repo.UserExistsAsync(ticket.Dev.UserId))
-            {
-                return NotFound("Dev not found");
-            }
-            if (!await _repo.UserExistsAsync(ticket.Submitter.UserId))
+            if (ticket.Submitter is null || !await _repo.UserExistsAsync(ticket.Submitter.UserId))
             {
                 return NotFound("Submitter not found");
             }
-            if (!await _repo.UserExistsAsync(ticket.Updater.UserId))
+            if (ticket.Dev != null && ticket.Dev.UserId != 0 && !await _repo.UserExistsAsync(ticket.Dev.UserId))
             {
-                return NotFound("Updater not found");
+                return NotFound("Dev not found");
             }
-            if (!await _repo.PriorityExistsAsync(ticket.Priority))
+            if (ticket.Updater is null || !await _repo.UserExistsAsync(ticket.Updater.UserId))
+            {
+                return NotFound("Submitter not found");
+            }
+            if (ticket.Priority is null || !await _repo.PriorityExistsAsync(ticket.Priority))
             {
                 return NotFound("Priority not found");
             }
-            if (!await _repo.StatusExistsAsync(ticket.Status))
+            if (ticket.Status is null || !await _repo.StatusExistsAsync(ticket.Status))
             {
                 return NotFound("Status not found");
             }
-            if (!await _repo.TypeExistsAsync(ticket.Type))
+            if (ticket.Type is null || !await _repo.TypeExistsAsync(ticket.Type))
             {
                 return NotFound("Type not found");
             }
@@ -149,7 +161,7 @@ namespace BugTracker.Storing.Controllers
                 await _repo.DeleteTicketAsync(ticketId);
                 return NoContent();
             }
-            return NotFound();
+            return NotFound("Ticket not found");
         }
     }
 }

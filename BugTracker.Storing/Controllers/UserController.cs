@@ -23,7 +23,7 @@ namespace BugTracker.Storing.Controllers
             {
                 return Ok(await _repo.ReadUserByEmailAsync(email));
             }
-            return NotFound();
+            return NotFound("User not found");
         }
 
         [HttpGet("{userId}")]
@@ -34,7 +34,7 @@ namespace BugTracker.Storing.Controllers
             {
                 return Ok(await _repo.ReadUserAsync(userId));
             }
-            return NotFound();
+            return NotFound("User not found");
         }
 
         [HttpGet]
@@ -62,7 +62,7 @@ namespace BugTracker.Storing.Controllers
                 }
                 return Ok(users);
             }
-            return NotFound();
+            return NotFound("Role not found");
         }
 
         [HttpGet("roles")]
@@ -74,7 +74,11 @@ namespace BugTracker.Storing.Controllers
         [HttpPost]
         public async Task<ActionResult<UserDTO>> PostAsync(UserDTO user)
         {
-            if (!await _repo.RoleExistsAsync(user.Role))
+            if (user is null)
+            {
+                return BadRequest("User is null");
+            }
+            if (user.Role is null || !await _repo.RoleExistsAsync(user.Role))
             {
                 return NotFound("Role not found");
             }
@@ -91,11 +95,15 @@ namespace BugTracker.Storing.Controllers
         [HttpPut]
         public async Task<IActionResult> PutAsync(UserDTO user)
         {
+            if (user is null)
+            {
+                return BadRequest("User is null");
+            }
             if (!await _repo.UserExistsAsync(user.UserId))
             {
                 return NotFound("User not found");
             }
-            if (!await _repo.RoleExistsAsync(user.Role))
+            if (user.Role is null || !await _repo.RoleExistsAsync(user.Role))
             {
                 return NotFound("Role not found");
             }
@@ -112,7 +120,7 @@ namespace BugTracker.Storing.Controllers
                 await _repo.DeleteUserAsync(userId);
                 return NoContent();
             }
-            return NotFound();
+            return NotFound("User not found");
         }
     }
 }

@@ -29,7 +29,7 @@ namespace BugTracker.Storing.Controllers
                 }
                 return Ok(projects);
             }
-            return NotFound();
+            return NotFound("User not found");
         }
 
         [HttpGet("{projectId}")]
@@ -40,7 +40,7 @@ namespace BugTracker.Storing.Controllers
             {
                 return Ok(await _repo.ReadProjectAsync(projectId));
             }
-            return NotFound();
+            return NotFound("Project not found");
         }
 
         [HttpGet]
@@ -58,7 +58,11 @@ namespace BugTracker.Storing.Controllers
         [HttpPost]
         public async Task<ActionResult<ProjectDTO>> PostAsync(ProjectDTO project)
         {
-            if (!await _repo.UserExistsAsync(project.Manager.UserId))
+            if (project is null)
+            {
+                return BadRequest("Project is null");
+            }
+            if (project.Manager is null || !await _repo.UserExistsAsync(project.Manager.UserId))
             {
                 return NotFound("Manager not found");
             }
@@ -75,11 +79,15 @@ namespace BugTracker.Storing.Controllers
         [HttpPut]
         public async Task<IActionResult> PutAsync(ProjectDTO project)
         {
+            if (project is null)
+            {
+                return BadRequest("Project is null");
+            }
             if (!await _repo.ProjectExistsAsync(project.ProjectId))
             {
                 return NotFound("Project not found");
             }
-            if (project.Manager.UserId != 0 && !await _repo.UserExistsAsync(project.Manager.UserId))
+            if (project.Manager is null || !await _repo.UserExistsAsync(project.Manager.UserId))
             {
                 return NotFound("Manager not found");
             }
@@ -96,7 +104,7 @@ namespace BugTracker.Storing.Controllers
                 await _repo.DeleteProjectAsync(projectId);
                 return NoContent();
             }
-            return NotFound();
+            return NotFound("Project not found");
         }
     }
 }

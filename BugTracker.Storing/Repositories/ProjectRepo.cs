@@ -105,7 +105,7 @@ namespace BugTracker.Storing.Repositories
             {
                 Title = projectDTO.Title,
                 Description = projectDTO.Description,
-                Manager = await _db.Users.SingleOrDefaultAsync(x => x.UserId == projectDTO.Manager.UserId)
+                Manager = await _db.Users.SingleAsync(x => x.UserId == projectDTO.Manager.UserId)
             };
 
             _db.Project.Add(project);
@@ -120,7 +120,7 @@ namespace BugTracker.Storing.Repositories
 
             project.Title = projectDTO.Title;
             project.Description = projectDTO.Description;
-            project.Manager = await _db.Users.SingleOrDefaultAsync(x => x.UserId == projectDTO.Manager.UserId);
+            project.Manager = await _db.Users.SingleAsync(x => x.UserId == projectDTO.Manager.UserId);
 
             await _db.SaveChangesAsync();
         }
