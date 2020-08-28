@@ -351,5 +351,5 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# remove appsettings
-**/appsettings*.json
+# remove appsettings files
+appsettings*.json
