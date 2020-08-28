@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -39,6 +40,37 @@ namespace BugTracker.Storing.Repositories
         {
             var projects = await _db.Project
                 .Where(x => x.ManagerId == userId || x.UserProjects.Any(u => u.UserId == userId))
+                .Include(x => x.Manager)
+                    .ThenInclude(x => x.Role)
+                .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Submitter)
+                        .ThenInclude(x => x.Role)
+                .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Dev)
+                        .ThenInclude(x => x.Role)
+                .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Priority)
+                .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Status)
+                .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Type)
+                .Include(x => x.UserProjects)
+                    .ThenInclude(x => x.User)
+                .ToListAsync();
+
+            var projectDTOList = new List<ProjectDTO>();
+
+            foreach (var project in projects)
+            {
+                projectDTOList.Add(new ProjectDTO(project));
+            }
+
+            return projectDTOList;
+        }
+
+        public async Task<List<ProjectDTO>> ReadAllProjectsAsync()
+        {
+            var projects = await _db.Project
                 .Include(x => x.Manager)
                     .ThenInclude(x => x.Role)
                 .Include(x => x.Tickets)

@@ -44,6 +44,18 @@ namespace BugTracker.Storing.Controllers
             return NotFound();
         }
 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ProjectDTO>>> GetAllAsync()
+        {
+            var projects = await _repo.ReadAllProjectsAsync();
+
+            if (projects.Count == 0)
+            {
+                return NoContent();
+            }
+            return Ok(projects);
+        }
+
         [HttpPost]
         public async Task<ActionResult<ProjectDTO>> PostAsync(ProjectDTO project)
         {
