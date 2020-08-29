@@ -242,6 +242,62 @@ namespace BugTracker.Storing
                     .HasConstraintName("FK_RoleId");
             });
 
+            modelBuilder.Entity<UserRole>().HasData(new Models.UserRole()
+            {
+                RoleId = -1,
+                Name = "Admin"
+            });
+
+            modelBuilder.Entity<TicketPriority>().HasData(new Models.TicketPriority()
+            {
+                PriorityId = -1,
+                Name = "High"
+            });
+
+            modelBuilder.Entity<TicketStatus>().HasData(new Models.TicketStatus()
+            {
+                StatusId = -1,
+                Name = "Open"
+            });
+
+            modelBuilder.Entity<TicketType>().HasData(new Models.TicketType()
+            {
+                TypeId = -1,
+                Name = "Bug/Error"
+            });
+
+            modelBuilder.Entity<Users>().HasData(new Models.Users()
+            {
+                UserId = -1,
+                FirstName = "firstname",
+                LastName = "lastname",
+                Email = "email",
+                RoleId = -1
+            });
+
+            modelBuilder.Entity<Project>().HasData(new Models.Project()
+            {
+                ProjectId = -1,
+                Title = "title",
+                Description = "description",
+                ManagerId = -1
+            });
+
+            modelBuilder.Entity<Ticket>().HasData(new Models.Ticket()
+            {
+                TicketId = -1,
+                Title = "title",
+                Description = "description",
+                SubmitterId = -1,
+                ProjectId = -1,
+                PriorityId = -1,
+                StatusId = -1,
+                TypeId = -1,
+                DateCreated = DateTime.UtcNow,
+                ValidFrom = DateTime.UtcNow,
+                ValidTo = DateTime.UtcNow
+            });
+
             OnModelCreatingPartial(modelBuilder);
         }
 

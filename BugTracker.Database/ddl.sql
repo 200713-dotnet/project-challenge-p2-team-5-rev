@@ -31,7 +31,7 @@ CREATE TABLE Tickets.Ticket
     Title NVARCHAR(100) NOT NULL,
     [Description] NVARCHAR(500) NOT NULL,
     DevId INT NULL,
-    SubmitterId INT NOT NULL,
+    SubmitterId INT NULL,
     UpdaterId INT NULL,
     ProjectId INT NOT NULL,
     PriorityId INT NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE Tickets.TicketType
 CREATE TABLE Tickets.Comment
 (
     CommentId INT NOT NULL IDENTITY(1, 1),
-    CommenterId INT NOT NULL,
+    CommenterId INT NULL,
     TicketId INT NOT NULL,
     DateCreated DATETIME2 NOT NULL DEFAULT GetDate(),
     [Text] NVARCHAR(500) NOT NULL,

@@ -105,7 +105,7 @@ namespace BugTracker.Storing.Repositories
             {
                 Title = projectDTO.Title,
                 Description = projectDTO.Description,
-                Manager = await _db.Users.SingleOrDefaultAsync(x => x.UserId == projectDTO.Manager.UserId)
+                Manager = await _db.Users.SingleAsync(x => x.UserId == projectDTO.Manager.UserId)
             };
 
             _db.Project.Add(project);
@@ -120,7 +120,7 @@ namespace BugTracker.Storing.Repositories
 
             project.Title = projectDTO.Title;
             project.Description = projectDTO.Description;
-            project.Manager = await _db.Users.SingleOrDefaultAsync(x => x.UserId == projectDTO.Manager.UserId);
+            project.Manager = await _db.Users.SingleAsync(x => x.UserId == projectDTO.Manager.UserId);
 
             await _db.SaveChangesAsync();
         }
@@ -129,11 +129,22 @@ namespace BugTracker.Storing.Repositories
         {
             var project = await _db.Project
                 .Include(x => x.UserProjects)
+                .Include(x => x.Tickets)
+                    .ThenInclude(x => x.Comments)
                 .SingleOrDefaultAsync(x => x.ProjectId == id);
 
             foreach (var userProject in project.UserProjects)
             {
                 _db.Remove(userProject);
+            }
+
+            foreach (var ticket in project.Tickets)
+            {
+                foreach (var comment in ticket.Comments)
+                {
+                    _db.Remove(comment);
+                }
+                _db.Remove(ticket);
             }
 
             _db.Remove(project);

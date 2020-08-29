@@ -153,17 +153,17 @@ GO
 -- from Tickets.Ticket;
 -- GO
 
-SELECT *
-from Tickets.fn_getTicketHistory(1)
-ORDER BY ValidFrom;
-GO
+-- SELECT *
+-- from Tickets.fn_getTicketHistory(1)
+-- ORDER BY ValidFrom;
+-- GO
 
 
-select *
-from Tickets.TicketPriority;
+-- select *
+-- from Tickets.TicketPriority;
 
-select *
-from Tickets.TicketStatus;
+-- select *
+-- from Tickets.TicketStatus;
 
 -- select * from Tickets.TicketType;
 

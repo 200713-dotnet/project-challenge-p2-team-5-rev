@@ -14,7 +14,7 @@ namespace BugTracker.Storing.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public int? DevId { get; set; }
-        public int SubmitterId { get; set; }
+        public int? SubmitterId { get; set; }
         public int? UpdaterId { get; set; }
         public int ProjectId { get; set; }
         public int PriorityId { get; set; }

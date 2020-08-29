@@ -117,12 +117,16 @@ namespace BugTracker.Storing.Repositories
 
             ticket.Title = ticketDTO.Title;
             ticket.Description = ticketDTO.Description;
-            ticket.Dev = await _db.Users.SingleOrDefaultAsync(x => x.UserId == ticketDTO.Dev.UserId);
             ticket.Submitter = await _db.Users.SingleAsync(x => x.UserId == ticketDTO.Submitter.UserId);
             ticket.Updater = await _db.Users.SingleAsync(x => x.UserId == ticketDTO.Updater.UserId);
             ticket.Priority = await _db.TicketPriority.SingleAsync(x => x.Name == ticketDTO.Priority);
             ticket.Status = await _db.TicketStatus.SingleAsync(x => x.Name == ticketDTO.Status);
             ticket.Type = await _db.TicketType.SingleAsync(x => x.Name == ticketDTO.Type);
+
+            if (ticketDTO.Dev != null)
+            {
+                ticket.Dev = await _db.Users.SingleOrDefaultAsync(x => x.UserId == ticketDTO.Dev.UserId);
+            }
 
             await _db.SaveChangesAsync();
         }
