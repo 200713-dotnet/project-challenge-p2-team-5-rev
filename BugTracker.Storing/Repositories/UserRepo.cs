@@ -97,9 +97,20 @@ namespace BugTracker.Storing.Repositories
 
         public async Task DeleteUserAsync(int id)
         {
-            _db.Users.Remove(
-                await _db.Users.SingleOrDefaultAsync(x => x.UserId == id)
-            );
+            var user = await _db.Users
+                .Include(x => x.UserProjects)
+                .Include(x => x.AssignedTickets)
+                .Include(x => x.ManagedProjects)
+                .Include(x => x.SubmittedTickets)
+                .Include(x => x.UpdatedTickets)
+                .SingleOrDefaultAsync(x => x.UserId == id);
+
+            foreach (var userProject in user.UserProjects)
+            {
+                _db.Remove(userProject);
+            }
+
+            _db.Users.Remove(user);
             await _db.SaveChangesAsync();
         }
     }

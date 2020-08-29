@@ -5,7 +5,6 @@ using BugTracker.Storing;
 using BugTracker.Storing.Controllers;
 using BugTracker.Storing.DTO;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace BugTracker.Testing.StoringTests
 {
@@ -60,24 +59,6 @@ namespace BugTracker.Testing.StoringTests
 
             Assert.True(res.Result.GetType() == typeof(OkObjectResult));
         }
-
-        // [Fact]
-        // public async void Test_PostAsync()
-        // {
-        //     var sut = new TicketController(_db);
-
-        //     var res = await sut.PostAsync(-1, new TicketDTO()
-        //     {
-        //         Title = "title",
-        //         Description = "description",
-        //         Submitter = new UserDTO() { UserId = -1 },
-        //         Priority = "High",
-        //         Status = "Open",
-        //         Type = "Bug/Error"
-        //     });
-
-        //     Assert.True(res.Result.GetType() == typeof(CreatedAtActionResult));
-        // }
 
         [Fact]
         public async void Test_PutAsync()
