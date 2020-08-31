@@ -27,11 +27,21 @@ namespace BugTracker.Storing
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.AddDbContext<BugTrackerDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("mssql"));
             });
+
             services.AddSwaggerGen();
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +51,8 @@ namespace BugTracker.Storing
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors();
 
             // app.UseHttpsRedirection();
 
