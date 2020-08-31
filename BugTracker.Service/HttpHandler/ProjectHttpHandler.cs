@@ -10,7 +10,7 @@ namespace BugTracker.Service.HttpHandler
 {
     public class ProjectHttpHandler
     {
-        private const string BASE_URI = "https://bugtrackerstoring.azurewebsites.net/api/project/";
+        private const string BASE_URI = "https://bugtrackerstoring.azurewebsites.net/storing/project/";
         public async Task<List<Project>> GetProjectsAsync()
         {
             var http = new HttpClient();
@@ -49,7 +49,7 @@ namespace BugTracker.Service.HttpHandler
             if (response.IsSuccessStatusCode)
             {
                 System.Console.WriteLine("Is Succesful - Handler");
-                return project.ID;
+                return project.ProjectId;
             }
             else
             {
