@@ -7,51 +7,101 @@ using Microsoft.AspNetCore.Mvc;
 namespace BugTracker.Service.Controllers
 {
   [Route("api/[controller]")]
-  // [Route("api/[controller]/[action]")]
   [ApiController]
   public class TicketController : ControllerBase
   {
     private readonly TicketHttpHandler httpHandler = new TicketHttpHandler();
 
     [HttpGet]
-    // [ActionName("GetAll")] // when you specify the action in the routing
     public async Task<ActionResult<IEnumerable<Ticket>>> Get()
     {
-      return await httpHandler.GetTicketsAsync();
+      var tickets = await httpHandler.GetTicketsAsync();
+      if(tickets.Count == 0)
+      {
+        return NoContent();
+      }
+      return Ok(tickets);
     }
+
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
-      return Ok();
+      var ticket = httpHandler.GetTicketsByIdAsync(id);
+      if(ticket!=null)
+      {
+        return Ok(ticket);
+      }
+      return NoContent();
     }
+
     [HttpGet]
     [Route("[action]/{id}")]
-    public async Task<ActionResult<IEnumerable<Ticket>>> GetByProjectId(int id)
+    public async Task<ActionResult<IEnumerable<Ticket>>> GetTicketsByProjectId(int id)
     {
-      System.Console.WriteLine("get by project Id");
-      return Ok();
+      var tickets = await httpHandler.GetTicketsByProjectId(id);
+      if(tickets.Count == 0)
+      {
+        return NoContent();
+      }
+      return Ok(tickets);
     }
 
     [HttpPost]
-    public IActionResult Post(Ticket ticket)
+    public IActionResult PostAsync(Ticket ticket)
     {
-      var success = httpHandler.PostTicketAsync(ticket);
-      if (success.Result)
+      if(ticket is null)
       {
+        return BadRequest();
+      }
+      var newId = httpHandler.PostTicketAsync(ticket);
+      if (newId.Result > 0)
+      {
+        ticket.ID = newId.Result;
         System.Console.WriteLine("Is Succesful - API");
-        return CreatedAtAction(nameof(GetById), new { id = ticket.ID }, ticket);
+        return CreatedAtAction(nameof(GetById), new { id = newId.Result }, ticket);
       }
       else
       {
         System.Console.WriteLine("Is Not Succesful - API");
-        return NotFound(); // FIXME
+        return NotFound();
       }
     }
+
+    [HttpPut]
+    public IActionResult PutTicket(int id, Ticket ticket)
+    {
+      if (id != ticket.ID)
+      {
+        return BadRequest();
+      }
+      var success = httpHandler.PutTicketAsync(id, ticket);
+      if (success.Result)
+      {
+        System.Console.WriteLine("Is Succesful - API");
+        return NoContent();
+      }
+      else
+      {
+        System.Console.WriteLine("is not succesful - API");
+        return NotFound();
+      }
+    }
+
     // DELETE: api/Ticket/5
     [HttpDelete("{id}")]
-    public async Task<ActionResult<Ticket>> DeleteTicket(int id)
+    public ActionResult<Ticket> DeleteTicket(int id)
     {
-      return Ok();
+      var success = httpHandler.DeleteTicketAsync(id);
+      if (success.Result)
+      {
+        System.Console.WriteLine("Delete Succesful - API");
+        return NoContent();
+      }
+      else
+      {
+        System.Console.WriteLine("Delete not succesful - API");
+        return NotFound("Ticket not found");
+      }
     }
   }
 }
