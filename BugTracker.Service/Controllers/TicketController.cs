@@ -7,14 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace BugTracker.Service.Controllers
 {
   [Route("api/[controller]")]
-  // [Route("api/[controller]/[action]")]
   [ApiController]
   public class TicketController : ControllerBase
   {
     private readonly TicketHttpHandler httpHandler = new TicketHttpHandler();
 
     [HttpGet]
-    // [ActionName("GetAll")] // when you specify the action in the routing
     public async Task<ActionResult<IEnumerable<Ticket>>> Get()
     {
       var tickets = await httpHandler.GetTicketsAsync();
@@ -88,7 +86,7 @@ namespace BugTracker.Service.Controllers
         return NotFound();
       }
     }
-    
+
     // DELETE: api/Ticket/5
     [HttpDelete("{id}")]
     public ActionResult<Ticket> DeleteTicket(int id)

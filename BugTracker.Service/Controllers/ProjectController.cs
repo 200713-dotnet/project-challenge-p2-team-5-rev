@@ -1,26 +1,19 @@
-using System;
 using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using BugTracker.Service.HttpHandler;
 using BugTracker.Service.Models;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-
-// dotnet add package Newtonsoft.Json --version 12.0.3
 
 namespace BugTracker.Service.Controllers
 {
   [Route("api/[controller]")]
-  // [Route("api/[controller]/[action]")]
   [ApiController]
   public class ProjectController : ControllerBase
   {
     private readonly ProjectHttpHandler httpHandler = new ProjectHttpHandler();
 
     [HttpGet]
-    [ActionName("GetProjects")] // when you specify the action in the routing
+    [ActionName("GetProjects")] 
     public async Task<ActionResult<IEnumerable<Project>>> Get()
     {
       var projects = await httpHandler.GetProjectsAsync();
