@@ -1,8 +1,8 @@
-USE master;
-GO
+-- USE master;
+-- GO
 
-CREATE DATABASE BugTrackerDb;
-GO
+-- CREATE DATABASE BugTrackerDb;
+-- GO
 
 USE BugTrackerDb;
 GO
