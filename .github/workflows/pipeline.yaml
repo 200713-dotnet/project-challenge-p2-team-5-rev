@@ -1,0 +1,62 @@
+jobs:
+  build_dotnet:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2.3.1
+      - run: dotnet build
+
+  test_dotnet:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2.3.1
+      - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover
+
+  analyze:
+    needs: [build_dotnet, test_dotnet]
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2.3.1
+      - run: dotnet tool install --global dotnet-sonarscanner
+      - run: |
+          dotnet sonarscanner begin -o:'rev-team-5' -k:'p2-bug-tracker' -d:sonar.login='f3bd03eff49a88e06b7425c619f78a73b41d5077' -d:sonar.host.url='https://sonarcloud.io'
+          dotnet build
+          dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --logger trx
+          dotnet sonarscanner end -d:sonar.login='f3bd03eff49a88e06b7425c619f78a73b41d5077'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  package_storing:
+    env:
+      DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
+      DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+    needs: [analyze]
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2.3.1
+      - run: echo ${DOCKER_TOKEN} | docker login --username ${DOCKER_LOGIN} --password-stdin
+      - run: docker image build -f .docker/aspnet_storing.dockerfile -t storing .
+      - run: docker image tag storing igilbert/aspnet_storing
+      - run: docker image push igilbert/aspnet_storing
+      - run: docker logout
+
+  package_service:
+    env:
+      DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
+      DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+    needs: [analyze]
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2.3.1
+      - run: echo ${DOCKER_TOKEN} | docker login --username ${DOCKER_LOGIN} --password-stdin
+      - run: docker image build -f .docker/aspnet_service.dockerfile -t service .
+      - run: docker image tag service igilbert/aspnet_service
+      - run: docker image push igilbert/aspnet_service
+      - run: docker logout
+
+name: btbuild
+
+on:
+  push:
+    branches:
+      - master
+      - msa

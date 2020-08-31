@@ -8,89 +8,89 @@ using Newtonsoft.Json;
 
 namespace BugTracker.Service.HttpHandler
 {
-  public class TicketHttpHandler
-  {
-    private const string BASE_URI = "http://localhost:5002/api/ticket/";
-    public async Task<List<Ticket>> GetTicketsAsync()
+    public class TicketHttpHandler
     {
-      var http = new HttpClient();
-      var response = await http.GetAsync(BASE_URI);
-      var json = await response.Content.ReadAsStringAsync();
-      var deserialized = JsonConvert.DeserializeObject<List<Ticket>>(json);
-      return deserialized;
-    }
-    public async Task<Ticket> GetTicketsByIdAsync(int id)
-    {
-      var http = new HttpClient();
-      var response = await http.GetAsync(BASE_URI + id.ToString());
-      var json = await response.Content.ReadAsStringAsync();
-      var deserialized = JsonConvert.DeserializeObject<Ticket>(json);
-      return deserialized;
-    }
-    public async Task<List<Ticket>> GetTicketsByProjectId(int id)
-    {
-      var http = new HttpClient();
-      var response = await http.GetAsync(BASE_URI + "getticketsbyprojectid/" + id.ToString());
-      var json = await response.Content.ReadAsStringAsync();
-      var deserialized = JsonConvert.DeserializeObject<List<Ticket>>(json);
-      return deserialized;
-    }
-    public async Task<int> PostTicketAsync(Ticket ticket)
-    {
-      var json = JsonConvert.SerializeObject(ticket);
-      var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
-      var httpClient = new HttpClient();
-      var response = await httpClient.PostAsync(BASE_URI, stringContent);
-      // content returned by Storing after Post
-      json = await response.Content.ReadAsStringAsync();
-      ticket = JsonConvert.DeserializeObject<Ticket>(json);
+        private const string BASE_URI = "https://bugtrackerstoring.azurewebsites.net/api/ticket/";
+        public async Task<List<Ticket>> GetTicketsAsync()
+        {
+            var http = new HttpClient();
+            var response = await http.GetAsync(BASE_URI);
+            var json = await response.Content.ReadAsStringAsync();
+            var deserialized = JsonConvert.DeserializeObject<List<Ticket>>(json);
+            return deserialized;
+        }
+        public async Task<Ticket> GetTicketsByIdAsync(int id)
+        {
+            var http = new HttpClient();
+            var response = await http.GetAsync(BASE_URI + id.ToString());
+            var json = await response.Content.ReadAsStringAsync();
+            var deserialized = JsonConvert.DeserializeObject<Ticket>(json);
+            return deserialized;
+        }
+        public async Task<List<Ticket>> GetTicketsByProjectId(int id)
+        {
+            var http = new HttpClient();
+            var response = await http.GetAsync(BASE_URI + "getticketsbyprojectid/" + id.ToString());
+            var json = await response.Content.ReadAsStringAsync();
+            var deserialized = JsonConvert.DeserializeObject<List<Ticket>>(json);
+            return deserialized;
+        }
+        public async Task<int> PostTicketAsync(Ticket ticket)
+        {
+            var json = JsonConvert.SerializeObject(ticket);
+            var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+            var httpClient = new HttpClient();
+            var response = await httpClient.PostAsync(BASE_URI, stringContent);
+            // content returned by Storing after Post
+            json = await response.Content.ReadAsStringAsync();
+            ticket = JsonConvert.DeserializeObject<Ticket>(json);
 
-      if (response.IsSuccessStatusCode)
-      {
-        return ticket.ID;
-      }
-      else
-      {
-        return -1;
-      }
-    }
+            if (response.IsSuccessStatusCode)
+            {
+                return ticket.ID;
+            }
+            else
+            {
+                return -1;
+            }
+        }
 
-    public async Task<bool> PutTicketAsync(int id, Ticket ticket)
-    {
-      var json = JsonConvert.SerializeObject(ticket);
-      var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
-      using(var client = new HttpClient())
-      {
-        var response = await client.PutAsync(BASE_URI + id.ToString(), stringContent);
-        if (response.IsSuccessStatusCode)
+        public async Task<bool> PutTicketAsync(int id, Ticket ticket)
         {
-          System.Console.WriteLine("Put Succesfull - Handler");
-          return true;
+            var json = JsonConvert.SerializeObject(ticket);
+            var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+            using (var client = new HttpClient())
+            {
+                var response = await client.PutAsync(BASE_URI + id.ToString(), stringContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    System.Console.WriteLine("Put Succesfull - Handler");
+                    return true;
+                }
+                else
+                {
+                    System.Console.WriteLine("Put Not Succesfull - Handler");
+                    return false;
+                }
+            }
         }
-        else
-        {
-          System.Console.WriteLine("Put Not Succesfull - Handler");
-          return false;
-        }
-      }
-    }
 
-    public async Task<bool> DeleteTicketAsync(int id)
-    {
-      using (var client = new HttpClient())
-      {
-        var response = await client.DeleteAsync(BASE_URI + id.ToString());
-        if (response.IsSuccessStatusCode)
+        public async Task<bool> DeleteTicketAsync(int id)
         {
-          System.Console.WriteLine("Delete Succesful - Handler");
-          return true;
+            using (var client = new HttpClient())
+            {
+                var response = await client.DeleteAsync(BASE_URI + id.ToString());
+                if (response.IsSuccessStatusCode)
+                {
+                    System.Console.WriteLine("Delete Succesful - Handler");
+                    return true;
+                }
+                else
+                {
+                    System.Console.WriteLine("Delete not succesful - Handler");
+                    return false;
+                }
+            }
         }
-        else
-        {
-          System.Console.WriteLine("Delete not succesful - Handler");
-          return false;
-        }
-      }
     }
-  }
 }
