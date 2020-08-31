@@ -124,49 +124,56 @@ GO
 -- Testing
 
 
--- INSERT INTO Projects.Project
---     (Title, [Description], ManagerId)
--- VALUES
---     ('title', 'description', 1);
+INSERT INTO Projects.Project
+    (Title, [Description], ManagerId)
+VALUES
+    ('title', 'description', 1);
 
 
--- INSERT INTO Tickets.Ticket
---     (Title, [Description], DevId, SubmitterId, ProjectId, PriorityId, StatusId, TypeId)
--- VALUES
---     ('title', 'description', 2, 3, 1, 1, 1, 1);
+INSERT INTO Tickets.Ticket
+    (Title, [Description], DevId, SubmitterId, ProjectId, PriorityId, StatusId, TypeId)
+VALUES
+    ('title', 'description', 2, 3, 1, 1, 1, 1);
 
--- GO
-
-
--- update Tickets.Ticket
--- set PriorityId = 2, UpdaterId = 1
--- WHERE TicketId = 1;
--- GO
-
--- update Tickets.Ticket
--- set StatusId = 2, UpdaterId = 2
--- WHERE TicketId = 1;
--- GO
+GO
 
 
--- select *
--- from Tickets.Ticket;
--- GO
+UPDATE Tickets.Ticket
+SET PriorityId = 2, UpdaterId = 1
+WHERE TicketId = 1;
+GO
 
--- SELECT *
--- from Tickets.fn_getTicketHistory(1)
--- ORDER BY ValidFrom;
--- GO
+UPDATE Tickets.Ticket
+SET StatusId = 2, UpdaterId = 2
+WHERE TicketId = 1;
+GO
 
 
--- select *
--- from Tickets.TicketPriority;
+SELECT *
+FROM Projects.Project
+GO
 
--- select *
--- from Tickets.TicketStatus;
+SELECT *
+FROM Tickets.Ticket;
+GO
 
--- select * from Tickets.TicketType;
+SELECT *
+FROM Tickets.fn_getTicketHistory(1)
+ORDER BY ValidFrom;
+GO
 
--- select * from Users.Users;
 
--- select * from Users.UserRole;
+SELECT *
+FROM Tickets.TicketPriority;
+
+SELECT *
+FROM Tickets.TicketStatus;
+
+SELECT *
+FROM Tickets.TicketType;
+
+SELECT *
+FROM Users.Users;
+
+SELECT *
+FROM Users.UserRole;
