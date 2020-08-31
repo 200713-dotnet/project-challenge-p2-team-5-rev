@@ -1,20 +1,19 @@
 using System.Collections.Generic;
-using BugTracker.Service.Models.Abstracts;
 
 namespace BugTracker.Service.Models
 {
-    public class Project : EntityBase
+    public class Project
     {
+        public int ProjectId { get; set; }
+
         public string Title { get; set; }
 
         public string Description { get; set; }
 
-        public string ManagerName { get; set; } // chenged this to manager name instead of ID
+        public User Manager { get; set; }
 
-        // public virtual User Manager { get; set; } // 
+        public List<Ticket> Tickets { get; set; }
 
-        // public virtual ICollection<Ticket> Tickets { get; set; }
-
-        // public virtual ICollection<UserProject> UserProjects { get; set; }
+        public List<User> DevTeam { get; set; }
     }
 }

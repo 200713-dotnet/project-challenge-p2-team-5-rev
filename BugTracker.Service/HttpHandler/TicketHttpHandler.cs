@@ -47,7 +47,7 @@ namespace BugTracker.Service.HttpHandler
 
             if (response.IsSuccessStatusCode)
             {
-                return ticket.ID;
+                return ticket.TicketId;
             }
             else
             {
