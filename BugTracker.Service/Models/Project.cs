@@ -9,11 +9,11 @@ namespace BugTracker.Service.Models
 
         public string Description { get; set; }
 
-        public int ManagerID { get; set; } // ?????
+        public string ManagerName { get; set; } // chenged this to manager name instead of ID
 
         // public virtual User Manager { get; set; } // 
 
-        public virtual ICollection<Ticket> Tickets { get; set; }
+        // public virtual ICollection<Ticket> Tickets { get; set; }
 
         // public virtual ICollection<UserProject> UserProjects { get; set; }
     }
