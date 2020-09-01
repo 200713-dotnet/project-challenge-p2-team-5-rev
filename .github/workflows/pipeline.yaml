@@ -1,4 +1,14 @@
 jobs:
+  build_angular:
+    defaults:
+      run:
+        working-directory: p2-angular/bug-tracker
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run build
+
   build_dotnet:
     runs-on: ubuntu-20.04
     steps:
@@ -24,6 +34,23 @@ jobs:
           dotnet sonarscanner end -d:sonar.login='f3bd03eff49a88e06b7425c619f78a73b41d5077'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  pack_angular:
+    defaults:
+      run:
+        working-directory: p2-angular/bug-tracker
+    env:
+      DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
+      DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+    needs: build_angular
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_LOGIN} --password-stdin
+      - run: docker image build -f ../../.docker/angular.dockerfile -t angular .
+      - run: docker image tag angular igilbert/angular
+      - run: docker image push igilbert/angular
+      - run: docker logout
 
   package_storing:
     env:
