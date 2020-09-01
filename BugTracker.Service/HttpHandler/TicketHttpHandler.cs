@@ -10,7 +10,7 @@ namespace BugTracker.Service.HttpHandler
 {
     public class TicketHttpHandler
     {
-        private const string BASE_URI = "https://bugtrackerstoring.azurewebsites.net/api/ticket/";
+        private const string BASE_URI = "http://localhost:5002/api/ticket/";
         public async Task<List<Ticket>> GetTicketsAsync()
         {
             var http = new HttpClient();
@@ -79,7 +79,7 @@ namespace BugTracker.Service.HttpHandler
         {
             using (var client = new HttpClient())
             {
-                var response = await client.DeleteAsync(BASE_URI + id.ToString());
+                var response = await client.DeleteAsync(BASE_URI + "/" + id.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     System.Console.WriteLine("Delete Succesful - Handler");

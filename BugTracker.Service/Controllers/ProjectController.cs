@@ -57,7 +57,7 @@ namespace BugTracker.Service.Controllers
       var newId = httpHandler.PostProjectAsync(project);
       if (newId.Result > 0)
       {
-        project.ID = newId.Result;
+        project.projectId = newId.Result;
         System.Console.WriteLine("Is Succesful - API");
         return CreatedAtAction(nameof(GetById), new { id = newId.Result }, project);
       }
@@ -68,7 +68,7 @@ namespace BugTracker.Service.Controllers
     [HttpPut]
     public IActionResult PutProject(int id, Project project)
     {
-      if (id != project.ID)
+      if (id != project.projectId)
       {
         return BadRequest();
       }
@@ -86,10 +86,10 @@ namespace BugTracker.Service.Controllers
     }
 
     // DELETE: api/Project/5
-    [HttpDelete("{id}")]
-    public ActionResult DeleteProject(int id)
+    [HttpDelete("{projectId}")]
+    public ActionResult DeleteProject(int projectId)
     {
-      var success = httpHandler.DeleteProjectAsync(id);
+      var success = httpHandler.DeleteProjectAsync(projectId);
       if (success.Result)
       {
         System.Console.WriteLine("Delete Succesful - API");
