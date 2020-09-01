@@ -42,7 +42,7 @@
     <!-- <td><button routerLink="/tickets/{{project.id}}">comments</button></td> -->
     <td><button>update</button></td>
     <td><button>close</button></td>
-    <td><button>delete</button></td>
+    <td><button (click)="delete(ticket)">delete</button></td>
   </tr>
 </table>
 <button (click)="goBack()">go back</button>

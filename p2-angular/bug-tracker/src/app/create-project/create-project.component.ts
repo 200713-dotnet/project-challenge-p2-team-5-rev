@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
 import { ProjectModel } from '../models/project_model';
 import { ProjectComponent } from '../project/project.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-project',
@@ -9,13 +10,18 @@ import { ProjectComponent } from '../project/project.component';
   styleUrls: ['./create-project.component.css'],
 })
 export class CreateProjectComponent implements OnInit {
-  managers = ['manager1', 'manager2', 'manager3'];
 
   model = new ProjectModel();
+  managerList = [1111, 22222, 33333]
 
-  constructor(private projectService: ProjectService) {}
-
-  ngOnInit(): void {}
+  constructor(
+    private projectService: ProjectService,
+    private router: Router
+    ) { }
+    
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
 
   add(): void {
     this.projectService
