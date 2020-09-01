@@ -34,7 +34,6 @@ namespace BugTracker.Service.Controllers
             }
             return Ok(tickets);
         }
-
         [HttpPost("{projectId}")]
         public async Task<ActionResult<Ticket>> PostAsync(int projectId, Ticket ticket)
         {

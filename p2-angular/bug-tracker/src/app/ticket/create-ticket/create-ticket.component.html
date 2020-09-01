@@ -1,0 +1,42 @@
+<h2>Add Project</h2>
+
+<div>
+  <form #ticketForm="ngForm">
+    <div>
+      <label for="Submitter">Enter your name</label>
+      <input type="text" id="manager" name="manager" [(ngModel)]="model.submitter">
+    </div>
+    <div>
+      <label for="Title">Ticket Title</label>
+      <input type="text" id="title" name="title" [(ngModel)]="model.title">
+    </div>
+    <div>
+      <label for="Description">Description</label>
+      <input type="text" id="description" name="description" [(ngModel)]="model.description">
+    </div>
+    <!-- <div>
+      <label for="Created">Manager</label>
+      <input type="text" id="date" name="date" [(ngModel)]="model.managerName">
+    </div> -->
+    <div>
+      <label for="Dev">Assign a Developer</label>
+      <input type="text" id="dev" name="dev" [(ngModel)]="model.dev">
+    </div>
+    <div>
+      <label for="Priority">Ticket Priority</label>
+      <input type="text" id="priority" name="priority" [(ngModel)]="model.priority">
+    </div>
+    <div>
+      <label for="Status">Ticket Status</label>
+      <input type="text" id="status" name="status" [(ngModel)]="model.status">
+    </div>
+    <div>
+      <label for="Type">Ticket Type</label>
+      <input type="text" id="type" name="type" [(ngModel)]="model.type">
+    </div>
+    <div>
+      <button type="button" (click)="add(); ticketForm.reset()">Add</button>
+    </div>
+  </form>
+</div>
+<hr/>
