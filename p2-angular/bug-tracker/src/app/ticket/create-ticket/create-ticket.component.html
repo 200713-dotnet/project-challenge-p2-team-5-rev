@@ -14,25 +14,29 @@
       <label for="Description">Description</label>
       <input type="text" id="description" name="description" [(ngModel)]="model.description">
     </div>
-    <!-- <div>
-      <label for="Created">Manager</label>
-      <input type="text" id="date" name="date" [(ngModel)]="model.managerName">
-    </div> -->
     <div>
       <label for="Dev">Assign a Developer</label>
-      <input type="text" id="dev" name="dev" [(ngModel)]="model.dev">
+      <select id="dev" [(ngModel)]="model.dev" name="dev" #dev="ngModel">
+        <option *ngFor="let dev of developers" [value]="dev">{{dev}}</option>
+      </select>
     </div>
     <div>
       <label for="Priority">Ticket Priority</label>
-      <input type="text" id="priority" name="priority" [(ngModel)]="model.priority">
+      <select id="priority" [(ngModel)]="model.priority" name="priority" #priority="ngModel">
+        <option *ngFor="let priority of priorityList" [value]="priority">{{priority}}</option>
+      </select>
     </div>
     <div>
       <label for="Status">Ticket Status</label>
-      <input type="text" id="status" name="status" [(ngModel)]="model.status">
+      <select id="status" [(ngModel)]="model.status" name="status" #status="ngModel">
+        <option *ngFor="let status of statusList" [value]="status">{{status}}</option>
+      </select>
     </div>
     <div>
       <label for="Type">Ticket Type</label>
-      <input type="text" id="type" name="type" [(ngModel)]="model.type">
+      <select id="type" [(ngModel)]="model.type" name="type" #type="ngModel">
+        <option *ngFor="let type of typeList" [value]="type">{{type}}</option>
+      </select>
     </div>
     <div>
       <button type="button" (click)="add(); ticketForm.reset()">Add</button>

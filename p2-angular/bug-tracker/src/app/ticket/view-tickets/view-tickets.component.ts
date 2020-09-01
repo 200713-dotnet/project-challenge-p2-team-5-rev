@@ -29,7 +29,7 @@ export class ViewTicketsComponent implements OnInit {
   }
 
   getTickets(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('projectId');
     this.getProject(id);
     this.ticketService.getTickets(id)
       .subscribe(t => this.tickets = t);
@@ -38,6 +38,12 @@ export class ViewTicketsComponent implements OnInit {
   getProject(id: number): void {
     this.projectService.getProject(id)
       .subscribe(p => this.project = p);
+  }
+
+  delete(ticket: TicketModel): void {
+    this.tickets = this.tickets.filter(t => t !== ticket);
+    console.log(ticket.ticketId)
+    this.ticketService.deleteTicket(ticket.ticketId).subscribe();
   }
 
   goBack(): void {

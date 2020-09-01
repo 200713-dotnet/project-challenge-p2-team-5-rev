@@ -26,13 +26,8 @@ export class ProjectComponent implements OnInit {
   }
 
   delete(project: ProjectModel): void{
-    console.log("project to delete: " + project.projectId)
     this.projects = this.projects.filter(p => p !== project);
-    console.log("hahaha")
-
     this.projectService.deleteProject(project.projectId).subscribe();
-    console.log("hahaha")
-
   }
 
   // goToTickets(id: number): void {
