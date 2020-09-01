@@ -4,8 +4,9 @@ using BugTracker.Service.Models.Abstracts;
 
 namespace BugTracker.Service.Models
 {
-  public class Ticket : EntityBase
+  public class Ticket
   {
+    public int ticketId { get; set; }
     public string Title { get; set; }
 
     public string Description { get; set; }

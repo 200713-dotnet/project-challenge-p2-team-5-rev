@@ -56,7 +56,7 @@ namespace BugTracker.Service.Controllers
       var newId = httpHandler.PostTicketAsync(ticket);
       if (newId.Result > 0)
       {
-        ticket.ID = newId.Result;
+        ticket.ticketId = newId.Result;
         System.Console.WriteLine("Is Succesful - API");
         return CreatedAtAction(nameof(GetById), new { id = newId.Result }, ticket);
       }
@@ -70,7 +70,7 @@ namespace BugTracker.Service.Controllers
     [HttpPut]
     public IActionResult PutTicket(int id, Ticket ticket)
     {
-      if (id != ticket.ID)
+      if (id != ticket.ticketId)
       {
         return BadRequest();
       }
