@@ -48,32 +48,34 @@ namespace BugTracker.Service.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Project> PostAsync(Project project)
+        public async Task<ActionResult<Project>> PostAsync(Project project)
         {
             if (project == null)
             {
                 return BadRequest();
             }
-            var newId = httpHandler.PostProjectAsync(project);
-            if (newId.Result > 0)
+            var newProject = await httpHandler.PostProjectAsync(project);
+            if (project is null)
             {
-                project.ProjectId = newId.Result;
-                System.Console.WriteLine("Is Succesful - API");
-                return CreatedAtAction(nameof(GetById), new { id = newId.Result }, project);
+                return NotFound();
             }
-            System.Console.WriteLine("Post Not succesful - API");
-            return NotFound();
+            return CreatedAtAction
+            (
+                nameof(GetById),
+                new { id = newProject.ProjectId },
+                newProject
+            );
         }
 
         [HttpPut]
-        public IActionResult PutProject(int id, Project project)
+        public async Task<IActionResult> PutProject(Project project)
         {
-            if (id != project.ProjectId)
+            if (project is null)
             {
                 return BadRequest();
             }
-            var success = httpHandler.PutProjectAsync(id, project);
-            if (success.Result)
+            var success = await httpHandler.PutProjectAsync(project);
+            if (success)
             {
                 System.Console.WriteLine("Is Succesful - API");
                 return NoContent();
