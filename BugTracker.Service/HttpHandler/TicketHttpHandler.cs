@@ -71,7 +71,7 @@ namespace BugTracker.Service.HttpHandler
         {
             using (var client = new HttpClient())
             {
-                var response = await client.DeleteAsync(BASE_URI + id.ToString());
+                var response = await client.DeleteAsync(BASE_URI + "/" + id.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     System.Console.WriteLine("Delete Succesful - Handler");

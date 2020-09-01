@@ -34,7 +34,6 @@ namespace BugTracker.Service.Controllers
             }
             return NoContent();
         }
-
         [HttpGet]
         [Route("[action]/{id}")]
         public async Task<ActionResult<IEnumerable<Project>>> GetProjectsByUserId(int id)
