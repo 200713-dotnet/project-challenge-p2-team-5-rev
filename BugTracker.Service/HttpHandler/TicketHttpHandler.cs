@@ -10,7 +10,7 @@ namespace BugTracker.Service.HttpHandler
 {
     public class TicketHttpHandler
     {
-        private const string BASE_URI = "https://bugtrackerstoring.azurewebsites.net/api/ticket/";
+        private const string BASE_URI = "https://bugtrackerstoring.azurewebsites.net/storing/ticket/";
         public async Task<List<Ticket>> GetTicketsAsync()
         {
             var http = new HttpClient();
