@@ -1,0 +1,22 @@
+<h2>Add Project</h2>
+
+<div>
+  <form #projectForm="ngForm">
+    <div>
+      <label for="Title">Project Title</label>
+      <input type="text" id="title" name="title" [(ngModel)]="model.title">
+    </div>
+    <div>
+      <label for="Description">Description</label>
+      <input type="text" id="description" name="description" [(ngModel)]="model.description">
+    </div>
+    <div>
+      <label for="ManagerName">Manager</label>
+      <input type="text" id="manager" name="manager" [(ngModel)]="model.managerName">
+    </div>
+    <div>
+      <button type="button" (click)="add(); projectForm.reset()">Add</button>
+    </div>
+  </form>
+</div>
+<hr/>

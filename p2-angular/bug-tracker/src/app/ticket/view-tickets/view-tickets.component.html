@@ -1,0 +1,48 @@
+<!-- <p>view-tickets works!</p> -->
+<h2>Project</h2>
+<div *ngIf="project">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Manager Name</th>
+    </tr>
+    <tr>
+      <td>{{project.title}}</td>
+      <td>{{project.description}}</td>
+      <td>{{project.managerName}}</td>
+    </tr>
+  </table>
+</div>
+<h2>Project Tickets</h2>
+<div *ngIf="project">
+  <button type="button" value="" routerLink="/add-ticket/{{project.id}}">add ticket</button>
+</div>
+<hr/>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Developer Assigned</th>
+    <th>Submitter</th>
+    <th>Priority</th>
+    <th>Status</th>
+    <th>Type</th>
+  </tr>
+  <tr *ngFor="let ticket of tickets">
+    <td>{{ticket.title}}</td>
+    <td>{{ticket.description}}</td>
+    <td>{{ticket.created}}</td>
+    <td>{{ticket.dev}}</td>
+    <td>{{ticket.submitter}}</td>
+    <td>{{ticket.priority}}</td>
+    <td>{{ticket.status}}</td>
+    <td>{{ticket.type}}</td>
+    <!-- <td><button routerLink="/tickets/{{project.id}}">comments</button></td> -->
+    <td><button>update</button></td>
+    <td><button>close</button></td>
+    <td><button>delete</button></td>
+  </tr>
+</table>
+<button (click)="goBack()">go back</button>
