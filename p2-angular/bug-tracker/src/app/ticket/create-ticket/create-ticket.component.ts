@@ -6,36 +6,34 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-create-ticket',
   templateUrl: './create-ticket.component.html',
-  styleUrls: ['./create-ticket.component.css']
+  styleUrls: ['./create-ticket.component.css'],
 })
 export class CreateTicketComponent implements OnInit {
-
-  model = new TicketModel;
+  model = new TicketModel();
   projId: number;
 
   constructor(
     private ticketService: TicketService,
-    private route: ActivatedRoute, 
-    ) { }
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   add(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log('id: ' + id);
-    this.ticketService.addTicket( id, 
-      {title: this.model.title.trim(), 
-      description: this.model.description.trim(), 
-      created: new Date(),
-      dev: this.model.dev.trim(),
-      submitter: this.model.submitter.trim(),
-      priority: this.model.priority.trim(),
-      status: this.model.status.trim(),
-      type: this.model.type.trim(),
+    this.ticketService
+      .addTicket(id, {
+        title: this.model.title.trim(),
+        description: this.model.description.trim(),
+        dateCreated: new Date(),
+        dev: this.model.dev,
+        submitter: this.model.submitter,
+        priority: this.model.priority.trim(),
+        status: this.model.status.trim(),
+        type: this.model.type.trim(),
       } as TicketModel)
-      .subscribe();                        
-    console.log("subscribe");
+      .subscribe();
+    console.log('subscribe');
   }
-
 }

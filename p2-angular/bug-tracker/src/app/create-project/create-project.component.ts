@@ -6,28 +6,27 @@ import { ProjectComponent } from '../project/project.component';
 @Component({
   selector: 'app-create-project',
   templateUrl: './create-project.component.html',
-  styleUrls: ['./create-project.component.css']
+  styleUrls: ['./create-project.component.css'],
 })
 export class CreateProjectComponent implements OnInit {
+  managers = ['manager1', 'manager2', 'manager3'];
 
-  managers = ["manager1", "manager2", "manager3"]
+  model = new ProjectModel();
 
-  model = new ProjectModel;
+  constructor(private projectService: ProjectService) {}
 
-  constructor(private projectService: ProjectService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  add(): void {
+    this.projectService
+      .addProject({
+        title: this.model.title.trim(),
+        description: this.model.description.trim(),
+        manager: this.model.manager,
+      } as ProjectModel)
+      .subscribe();
+    // .subscribe(project => {
+    //   this.projectComponent.projects.push(project);
+    // });
   }
-
-  add(): void{
-    this.projectService.addProject( { 
-      title: this.model.title.trim(), 
-      description: this.model.description.trim(), 
-      managerName: this.model.managerName.trim()} as ProjectModel)
-      .subscribe();                        
-      // .subscribe(project => {
-      //   this.projectComponent.projects.push(project);
-     // });
-  }
-
 }

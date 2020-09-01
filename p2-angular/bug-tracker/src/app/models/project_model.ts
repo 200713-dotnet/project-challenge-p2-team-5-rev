@@ -1,7 +1,9 @@
-export class ProjectModel{
+import { UserModel } from './user_model';
+
+export class ProjectModel {
   projectId: number;
   title: string;
-  managerName: string;
+  manager: UserModel;
   description: string;
-  constructor(){ }
+  constructor() {}
 }

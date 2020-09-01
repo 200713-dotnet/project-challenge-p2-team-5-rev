@@ -10,15 +10,15 @@
     <tr>
       <td>{{project.title}}</td>
       <td>{{project.description}}</td>
-      <td>{{project.managerName}}</td>
+      <td>{{project.manager.firstName + " " + project.manager.lastName}}</td>
     </tr>
   </table>
 </div>
 <h2>Project Tickets</h2>
 <div *ngIf="project">
-  <button type="button" value="" routerLink="/add-ticket/{{project.id}}">add ticket</button>
+  <button type="button" value="" routerLink="/add-ticket/{{project.projectId}}">add ticket</button>
 </div>
-<hr/>
+<hr />
 <table>
   <tr>
     <th>Title</th>
@@ -33,9 +33,9 @@
   <tr *ngFor="let ticket of tickets">
     <td>{{ticket.title}}</td>
     <td>{{ticket.description}}</td>
-    <td>{{ticket.created}}</td>
-    <td>{{ticket.dev}}</td>
-    <td>{{ticket.submitter}}</td>
+    <td>{{ticket.dateCreated}}</td>
+    <td>{{ticket.dev.firstname + " " + ticket.dev.lastName}}</td>
+    <td>{{ticket.submitter.firstName + " " + ticket.submitter.lastName}}</td>
     <td>{{ticket.priority}}</td>
     <td>{{ticket.status}}</td>
     <td>{{ticket.type}}</td>

@@ -9,7 +9,7 @@
   <tr *ngFor="let project of projects">
     <td>{{project.title}}</td>
     <td>{{project.description}}</td>
-    <td>{{project.managerName}}</td>
+    <td>{{project.manager.firstName + " " + project.manager.lastName}}</td>
     <td><button routerLink="/tickets/{{project.projctId}}">tickets</button></td>
     <td><button>update</button></td>
     <td><button (click)=delete(project)>delete</button></td>
