@@ -10,16 +10,9 @@ export class ProjectService {
 
   private projectUrl = 'http://localhost:5000/api/project';
 
-  // projectId: number = 1;
-
   constructor(private http: HttpClient) { }
 
   getProjects(): Observable<ProjectModel[]>{
-    // let projects: ProjectModel[] = [
-    //   {id: 1, title: "rand title1", description: "proj rand description", managerName: "rand manager title"},
-    //   {id: 1, title: "rand title2", description: "proj rand description", managerName: "rand manager title"},
-    //   {id: 1, title: "rand title3", description: "proj rand description", managerName: "rand manager title"}
-    // ]
     console.log("getting");
     return this.http.get<ProjectModel[]>(this.projectUrl);
   }
@@ -34,12 +27,16 @@ export class ProjectService {
     return this.http.post<ProjectModel>(this.projectUrl, project, this.httpOptions);
   }
 
+  deleteProject(project: ProjectModel | number): Observable<ProjectModel> {
+    const id = typeof project === 'number' ? project : project.projectId;
+    const url = `${this.projectUrl}/${id}`;
+    console.log("id: " + id)
+    console.log(url)
+    return this.http.delete<ProjectModel>(url, this.httpOptions);
+  }
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-
-  // setProjectId(id: number): void {
-  //   this.projectId = id;
-  // }
 
 }

@@ -1,5 +1,5 @@
 export class ProjectModel{
-  id: number;
+  projectId: number;
   title: string;
   managerName: string;
   description: string;

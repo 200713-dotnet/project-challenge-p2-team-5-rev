@@ -4,10 +4,10 @@ import { CreateProjectComponent } from './create-project/create-project.componen
 import { ProjectComponent } from './project/project.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/projects', pathMatch: 'full'},
+  { path: '', redirectTo: 'projects', pathMatch: 'full'},
   { path: 'add-project', component: CreateProjectComponent},
   { path: 'projects', component: ProjectComponent},
-  { path: 'tickets/:id', loadChildren: () => import('./ticket/ticket.module').then(t => t.TicketModule) }
+  { path: 'tickets/:projectId', loadChildren: () => import('./ticket/ticket.module').then(t => t.TicketModule) }
 ];
 
 @NgModule({

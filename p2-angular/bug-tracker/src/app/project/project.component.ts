@@ -19,12 +19,20 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(){
     this.getProjects();
-    // added this random text
-    console.log("rand text");
   }
 
   getProjects(): void{
     this.projectService.getProjects().subscribe(proj => this.projects = proj);
+  }
+
+  delete(project: ProjectModel): void{
+    console.log("project to delete: " + project.projectId)
+    this.projects = this.projects.filter(p => p !== project);
+    console.log("hahaha")
+
+    this.projectService.deleteProject(project.projectId).subscribe();
+    console.log("hahaha")
+
   }
 
   // goToTickets(id: number): void {

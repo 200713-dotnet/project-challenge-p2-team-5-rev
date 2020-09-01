@@ -10,8 +10,8 @@
     <td>{{project.title}}</td>
     <td>{{project.description}}</td>
     <td>{{project.managerName}}</td>
-    <td><button routerLink="/tickets/{{project.id}}">tickets</button></td>
+    <td><button routerLink="/tickets/{{project.projctId}}">tickets</button></td>
     <td><button>update</button></td>
-    <td><button>delete</button></td>
+    <td><button (click)=delete(project)>delete</button></td>
   </tr>
 </table>

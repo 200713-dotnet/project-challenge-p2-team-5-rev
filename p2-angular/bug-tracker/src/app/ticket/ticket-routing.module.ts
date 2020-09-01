@@ -5,7 +5,7 @@ import { CreateTicketComponent } from '../ticket/create-ticket/create-ticket.com
 
 const routes: Routes = [
   { path: '', component: ViewTicketsComponent },
-  { path: 'add-ticket/:id', component: CreateTicketComponent }
+  { path: 'add-ticket/:projectId', component: CreateTicketComponent }
 ];
 
 @NgModule({
