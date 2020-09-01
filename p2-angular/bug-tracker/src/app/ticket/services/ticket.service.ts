@@ -30,9 +30,13 @@ export class TicketService {
     );
   }
 
-  // getProjectId(): number {
-  //   return this.projectService.projectId;
-  // }
+  deleteTicket(ticket: TicketModel | number): Observable<TicketModel> {
+    const id = typeof ticket === 'number' ? ticket : ticket.ticketId;
+    const url = `${this.ticketUrl}${id}`;
+    // console.log("id: " + id)
+    // console.log(url)
+    return this.http.delete<TicketModel>(url, this.httpOptions);
+  }
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

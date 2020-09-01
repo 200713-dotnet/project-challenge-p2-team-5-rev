@@ -12,7 +12,9 @@
     </div>
     <div>
       <label for="ManagerId">ManagerId</label>
-      <input type="text" id="ManagerId" name="ManagerId" [(ngModel)]="model.manager.userId">
+      <select id="manager" [(ngModel)]="model.manager.userId" name="manager" #manager.userId="ngModel">
+        <option *ngFor="let manager of managerList" [value]="manager">{{manager}}</option>
+      </select>
     </div>
     <div>
       <button type="button" (click)="add(); projectForm.reset()">Add</button>

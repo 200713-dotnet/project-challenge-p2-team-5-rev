@@ -34,8 +34,6 @@ export class ProjectService {
   deleteProject(project: ProjectModel | number): Observable<ProjectModel> {
     const id = typeof project === 'number' ? project : project.projectId;
     const url = `${this.projectUrl}/${id}`;
-    console.log('id: ' + id);
-    console.log(url);
     return this.http.delete<ProjectModel>(url, this.httpOptions);
   }
 
