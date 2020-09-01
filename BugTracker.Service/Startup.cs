@@ -25,17 +25,15 @@ namespace BugTracker.Service
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
-            services.AddSwaggerGen();
-
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(policy =>
+                options.AddDefaultPolicy(options =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
                 });
             });
+            services.AddControllers();
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

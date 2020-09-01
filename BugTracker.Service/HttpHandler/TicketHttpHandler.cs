@@ -11,14 +11,6 @@ namespace BugTracker.Service.HttpHandler
     public class TicketHttpHandler
     {
         private const string BASE_URI = "https://bugtrackerstoring.azurewebsites.net/storing/ticket/";
-        public async Task<List<Ticket>> GetTicketsAsync()
-        {
-            var http = new HttpClient();
-            var response = await http.GetAsync(BASE_URI);
-            var json = await response.Content.ReadAsStringAsync();
-            var deserialized = JsonConvert.DeserializeObject<List<Ticket>>(json);
-            return deserialized;
-        }
         public async Task<Ticket> GetTicketsByIdAsync(int id)
         {
             var http = new HttpClient();
@@ -35,33 +27,33 @@ namespace BugTracker.Service.HttpHandler
             var deserialized = JsonConvert.DeserializeObject<List<Ticket>>(json);
             return deserialized;
         }
-        public async Task<int> PostTicketAsync(Ticket ticket)
+        public async Task<Ticket> PostTicketAsync(int projectId, Ticket ticket)
         {
             var json = JsonConvert.SerializeObject(ticket);
             var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
             var httpClient = new HttpClient();
-            var response = await httpClient.PostAsync(BASE_URI, stringContent);
+            var response = await httpClient.PostAsync(BASE_URI + projectId.ToString(), stringContent);
             // content returned by Storing after Post
             json = await response.Content.ReadAsStringAsync();
             ticket = JsonConvert.DeserializeObject<Ticket>(json);
 
             if (response.IsSuccessStatusCode)
             {
-                return ticket.TicketId;
+                return ticket;
             }
             else
             {
-                return -1;
+                return null;
             }
         }
 
-        public async Task<bool> PutTicketAsync(int id, Ticket ticket)
+        public async Task<bool> PutTicketAsync(Ticket ticket)
         {
             var json = JsonConvert.SerializeObject(ticket);
             var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
             using (var client = new HttpClient())
             {
-                var response = await client.PutAsync(BASE_URI + id.ToString(), stringContent);
+                var response = await client.PutAsync(BASE_URI, stringContent);
                 if (response.IsSuccessStatusCode)
                 {
                     System.Console.WriteLine("Put Succesfull - Handler");

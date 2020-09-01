@@ -12,21 +12,10 @@ namespace BugTracker.Service.Controllers
     {
         private readonly TicketHttpHandler httpHandler = new TicketHttpHandler();
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ticket>>> Get()
-        {
-            var tickets = await httpHandler.GetTicketsAsync();
-            if (tickets.Count == 0)
-            {
-                return NoContent();
-            }
-            return Ok(tickets);
-        }
-
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public async Task<ActionResult<Ticket>> GetById(int id)
         {
-            var ticket = httpHandler.GetTicketsByIdAsync(id);
+            var ticket = await httpHandler.GetTicketsByIdAsync(id);
             if (ticket != null)
             {
                 return Ok(ticket);
@@ -46,36 +35,35 @@ namespace BugTracker.Service.Controllers
             return Ok(tickets);
         }
 
-        [HttpPost]
-        public IActionResult PostAsync(Ticket ticket)
+        [HttpPost("{projectId}")]
+        public async Task<ActionResult<Ticket>> PostAsync(int projectId, Ticket ticket)
         {
             if (ticket is null)
             {
                 return BadRequest();
             }
-            var newId = httpHandler.PostTicketAsync(ticket);
-            if (newId.Result > 0)
+            var newTicket = await httpHandler.PostTicketAsync(projectId, ticket);
+            if (newTicket is null)
             {
-                ticket.TicketId = newId.Result;
-                System.Console.WriteLine("Is Succesful - API");
-                return CreatedAtAction(nameof(GetById), new { id = newId.Result }, ticket);
-            }
-            else
-            {
-                System.Console.WriteLine("Is Not Succesful - API");
                 return NotFound();
             }
+            return CreatedAtAction
+            (
+                nameof(GetById),
+                new { id = newTicket.TicketId },
+                newTicket
+            );
         }
 
         [HttpPut]
-        public IActionResult PutTicket(int id, Ticket ticket)
+        public async Task<IActionResult> PutTicketAsync(Ticket ticket)
         {
-            if (id != ticket.TicketId)
+            if (ticket is null)
             {
                 return BadRequest();
             }
-            var success = httpHandler.PutTicketAsync(id, ticket);
-            if (success.Result)
+            var success = await httpHandler.PutTicketAsync(ticket);
+            if (success)
             {
                 System.Console.WriteLine("Is Succesful - API");
                 return NoContent();
